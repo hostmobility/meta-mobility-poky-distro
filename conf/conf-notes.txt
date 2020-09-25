@@ -1,0 +1,4 @@
+Host Mobility targets are:
+	mobilityx-bringup-image-console
+	mobilityx-bringup-image
+You can also run generated qemu images with a command like 'runqemu qemux86'
