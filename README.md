@@ -1,4 +1,4 @@
-# Mobility X - Bring Up OS
+# Mobility OS
 
 This repository contains the Yocto meta data for the Mobility OS,
 which is used for the MX-5 product.
