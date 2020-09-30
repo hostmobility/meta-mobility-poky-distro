@@ -1,6 +1,4 @@
-DESCRIPTION = "A console-only image that includes gstreamer packages, \
-Freescale's multimedia packages (VPU and GPU) when available, and \
-test and benchmark applications."
+DESCRIPTION = "A console-only image."
 
 IMAGE_FEATURES += " \
     debug-tweaks \
@@ -8,30 +6,6 @@ IMAGE_FEATURES += " \
     tools-profile \
     splash \
     ssh-server-dropbear \
-"
-
-X11TOOLS = "\
-    x11perf \
-    xrestop \
-    xwininfo \
-    xprop \
-"
-
-CANTOOLS = "\
-    can-utils \
-    libsocketcan \
-    iproute2 \
-"
-
-BRINGUP_TEST_APPS = "\
-    cryptodev-module \
-    cryptodev-tests \
-    dfu-util \
-    rng-tools \
-    libssl \
-    ntpdate \
-    lrzsz \
-    lmsensors-sensors \
 "
 
 LICENSE = "MIT"
@@ -42,6 +16,25 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     packagegroup-core-full-cmdline \
     packagegroup-basic \
     packagegroup-base-extended \
-    ${BRINGUP_TEST_APPS} \
-    ${CANTOOLS} \
+    packagegroup-hostmobility-can \
+    packagegroup-hostmobility-net-minimal \
+    packagegroup-hostmobility-gps \
+    packagegroup-hostmobility-net-extended \
+    minicom \
+    libssl \
+    lrzsz \
+    lmsensors-sensors \
 "
+
+CORE_IMAGE_EXTRA_INSTALL_append_mx6 += " \
+    libgpiod \
+    libgpiod-tools \
+    ntpdate \
+    cryptodev-module \
+    cryptodev-tests \
+    rng-tools \
+    uart-test \
+    dfu-util \
+"
+
+
