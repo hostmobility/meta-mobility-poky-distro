@@ -1,0 +1,42 @@
+#!/bin/bash
+
+function kill_wait {
+	# Tell process to stop
+	kill -TERM $1
+
+	# Wait up to 10 seconds for process to end
+	for i in {1..10}; do
+		if ! kill -0 $1 2>/dev/null; then
+			break
+		fi
+		sleep 1
+	done
+
+	# If not ended, kill harder
+	if kill -0 $1 2>/dev/null; then
+		kill -9 $1
+	fi
+}
+
+if [[ "$IFACE" != "eth"* ]]; then
+	exit 1
+fi
+
+PID_FILE_CLIENT=/var/run/udhcpc.$IFACE.pid
+PID_FILE_SERVER=/var/run/udhcpd.$IFACE.pid
+
+ADDR=`ip addr show $IFACE|grep "inet "|head -n 1|awk '{print $2}'`
+
+if [ "$ADDR" != "" ]; then
+	ip addr del $ADDR dev $IFACE
+fi
+
+route del default dev $IFACE
+
+if [ -e "$PID_FILE_CLIENT" ]; then
+	kill_wait `cat $PID_FILE_CLIENT`
+fi
+
+if [ -e "$PID_FILE_SERVER" ]; then
+	kill_wait `cat $PID_FILE_SERVER`
+fi
