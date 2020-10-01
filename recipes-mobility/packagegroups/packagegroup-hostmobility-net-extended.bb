@@ -6,7 +6,6 @@ inherit packagegroup
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS_${PN} = " \
-    modemmanager \
     mobile-broadband-provider-info \
     wvdial \
 "
