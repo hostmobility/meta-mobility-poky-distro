@@ -14,6 +14,7 @@ RDEPENDS_${PN} = " \
     lmsensors-sensors \
     python3-pip \
     python3-pyserial \
+    hdparm \
     opkg \
     opkg-utils \
 "
