@@ -1,0 +1,13 @@
+# stock fstab - you probably want to override this with a machine specific one
+
+/dev/root            /                    auto       defaults              1  1
+proc                 /proc                proc       defaults              0  0
+devpts               /dev/pts             devpts     mode=0620,gid=5       0  0
+tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,strictatime 0  0
+tmpfs                /var/volatile        tmpfs      defaults              0  0
+
+# fstab file provided by Host Mobility BSP which will mount the first partition
+# on a SD/MMC card.
+#
+# If your SD/MMC has a different partition layout you need to customize this file
+/dev/mmcblk1p1       /media/mmcblk1p1        auto       defaults,auto,nofail  0  0
