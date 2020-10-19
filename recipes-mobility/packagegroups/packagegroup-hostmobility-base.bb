@@ -17,5 +17,7 @@ RDEPENDS_${PN} = " \
     hdparm \
     opkg \
     opkg-utils \
+    distro-feed-configs \
+    fbtest \
 "
 

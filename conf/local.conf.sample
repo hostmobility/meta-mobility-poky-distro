@@ -30,4 +30,8 @@ VIRTUAL-RUNTIME_initscripts = ""
 
 LICENSE_FLAGS_WHITELIST = "commercial"
 
+DISTRO_FEED_PREFIX += "mobility"
+DISTRO_FEED_URI += "http://www.hostmobility.org:8008/ipk_bsp2/mobility"
+DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
+
 ERROR_QA_remove = "version-going-backwards"
