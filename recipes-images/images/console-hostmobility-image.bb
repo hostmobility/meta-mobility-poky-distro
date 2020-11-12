@@ -30,6 +30,7 @@ IMAGE_INSTALL += " \
 
 IMAGE_INSTALL_append_mx6 += " \
     packagegroup-hostmobility-base \
+    packagegroup-imx-tools-audio \
     ntpdate \
     rng-tools \
     uart-test \
