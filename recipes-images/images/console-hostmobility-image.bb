@@ -11,8 +11,15 @@ IMAGE_LINGUAS = "en-us"
 DISTRO_UPDATE_ALTERNATIVES ??= ""
 ROOTFS_PKGMANAGE_PKGS ?= '${@oe.utils.conditional("ONLINE_PACKAGE_MANAGEMENT", "none", "", "${ROOTFS_PKGMANAGE} ${DISTRO_UPDATE_ALTERNATIVES}", d)}'
 
+IMAGE_FEATURES += " \
+    debug-tweaks \
+    tools-debug \
+    tools-profile \
+    splash \
+    ssh-server-openssh \
+"
+
 IMAGE_INSTALL += " \
-    packagegroup-basic \
     packagegroup-base-extended \
     packagegroup-hostmobility-can \
     packagegroup-hostmobility-net-minimal \
