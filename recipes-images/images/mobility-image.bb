@@ -7,6 +7,12 @@ LICENSE = "MIT"
 
 require console-hostmobility-image.bb
 
+IMAGE_FEATURES += " \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '', \
+       bb.utils.contains('DISTRO_FEATURES',     'x11', 'x11-base', \
+                                                       '', d), d)} \
+"
+
 X11TOOLS = "\
     x11perf \
     xrestop \
