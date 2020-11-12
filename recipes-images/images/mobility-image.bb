@@ -28,9 +28,4 @@ IMAGE_INSTALL_append += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', "${X11TOOLS}", "", d)} \
 "
 
-IMAGE_INSTALL_append_mx6 += " \
-    packagegroup-imx-tools-audio \
-"
-
-
 export IMAGE_BASENAME = "mobility-image"
