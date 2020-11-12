@@ -19,5 +19,8 @@ RDEPENDS_${PN} = " \
     opkg-utils \
     distro-feed-configs \
     fbtest \
+    openssl-engines \
+    htop \
+    make \
 "
 
