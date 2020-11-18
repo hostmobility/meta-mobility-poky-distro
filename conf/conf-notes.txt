@@ -1,4 +1,8 @@
 Host Mobility targets are:
-	mobility-image-console
-	mobility-image
-You can also run generated qemu images with a command like 'runqemu qemux86'
+    1. console-hostmobility-image *console only*
+    2. mobility-image *Graphic based console window and audio*
+    3. mobility-image-xfce *Desktop example version*
+    4. mobility-image-development *Development with graphic*
+Machine compatible
+    mx5-pt *include graphic*
+
