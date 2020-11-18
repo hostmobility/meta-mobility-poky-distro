@@ -18,7 +18,7 @@ IMAGE_FEATURES += " \
 "
 
 IMAGE_INSTALL += " \
-    packagegroup-base-extended \
+    packagegroup-base \
     packagegroup-hostmobility-can \
     packagegroup-hostmobility-net-minimal \
     packagegroup-hostmobility-gps \
