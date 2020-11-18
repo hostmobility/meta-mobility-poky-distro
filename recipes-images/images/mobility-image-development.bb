@@ -24,4 +24,6 @@ IMAGE_EXTRA_INSTALL += " \
                          'weston weston-init', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', \
                          'weston-xwayland xterm', '', d)} \
+    python3-pip \
+    python3-pyserial \
 "

@@ -13,8 +13,6 @@ RDEPENDS_${PN} = " \
     libssl \
     lrzsz \
     lmsensors-sensors \
-    python3-pip \
-    python3-pyserial \
     hdparm \
     opkg \
     opkg-utils \
