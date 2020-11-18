@@ -10,3 +10,5 @@ require mobility-image.bb
 IMAGE_INSTALL_append += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'packagegroup-xfce-base', '', d)} \
 "
+
+export IMAGE_BASENAME = "mobility-image-xfce"

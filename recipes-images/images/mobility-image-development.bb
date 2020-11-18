@@ -27,3 +27,5 @@ IMAGE_EXTRA_INSTALL += " \
     python3-pip \
     python3-pyserial \
 "
+
+export IMAGE_BASENAME = "mobility-image-development"
