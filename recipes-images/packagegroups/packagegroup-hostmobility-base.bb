@@ -21,5 +21,7 @@ RDEPENDS_${PN} = " \
     openssl-engines \
     htop \
     make \
+    cpufrequtils \
+    tzdata \
 "
 
