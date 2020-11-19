@@ -29,6 +29,7 @@ IMAGE_INSTALL += " \
 "
 
 IMAGE_INSTALL_append_mx6 += " \
+    packagegroup-core-full-cmdline-utils \
     packagegroup-hostmobility-base \
     packagegroup-imx-tools-audio \
     ntpdate \
