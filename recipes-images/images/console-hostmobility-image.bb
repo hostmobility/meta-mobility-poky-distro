@@ -13,7 +13,6 @@ ROOTFS_PKGMANAGE_PKGS ?= '${@oe.utils.conditional("ONLINE_PACKAGE_MANAGEMENT", "
 
 IMAGE_FEATURES += " \
     debug-tweaks \
-    splash \
     ssh-server-openssh \
 "
 
