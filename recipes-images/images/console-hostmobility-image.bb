@@ -35,6 +35,7 @@ IMAGE_INSTALL_append_mx6 += " \
     rng-tools \
     uart-test \
     dfu-util \
+    u-boot-hostmobility-flash-mx5 \
 "
 
 IMAGE_DEV_MANAGER   = "udev"
