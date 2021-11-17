@@ -1,0 +1,12 @@
+[Match]
+Name=usb0
+Name=usb1
+
+[Network]
+Address=192.168.250.1
+
+DHCPServer=true
+
+[DHCPServer]
+PoolOffset=1
+PoolSize=2

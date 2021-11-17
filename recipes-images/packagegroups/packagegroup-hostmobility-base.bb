@@ -23,5 +23,6 @@ RDEPENDS_${PN} = " \
     make \
     cpufrequtils \
     tzdata \
+    usb-rndis-systemd \
 "
 
