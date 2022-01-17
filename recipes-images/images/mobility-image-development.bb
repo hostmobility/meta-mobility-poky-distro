@@ -26,6 +26,7 @@ IMAGE_EXTRA_INSTALL += " \
                          'weston-xwayland xterm', '', d)} \
     python3-pip \
     python3-pyserial \
+    curl \
 "
 
 export IMAGE_BASENAME = "mobility-image-development"
