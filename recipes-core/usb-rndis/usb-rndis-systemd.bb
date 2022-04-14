@@ -4,7 +4,7 @@ SUMMARY = "RNDIS usb client configuration and startup"
 RDEPENDS_${PN} += "bash"
 
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=b97a012949927931feb7793eee5ed924"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=b97a012949927931feb7793eee5ed924"
 
 PR = "r1"
 
