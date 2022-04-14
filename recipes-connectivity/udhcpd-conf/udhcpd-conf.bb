@@ -1,6 +1,6 @@
 DESCRIPTION = "Configuration files for udhcpd (busybox)"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=b97a012949927931feb7793eee5ed924"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=b97a012949927931feb7793eee5ed924"
 
 SRC_URI += "\
     file://udhcpd-eth0.conf \
