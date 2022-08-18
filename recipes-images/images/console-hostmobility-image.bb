@@ -28,6 +28,7 @@ IMAGE_INSTALL += " \
     ${ROOTFS_PKGMANAGE_PKGS} \
     minicom \
     ${CORE_IMAGE_EXTRA_INSTALL} \
+    fs-init \
 "
 
 IMAGE_INSTALL_append_mx6 += " \

@@ -1,0 +1,9 @@
+[Unit]
+Description=Dummy service for resize script to increase rootfs to its partitions full size, add a machine or machine override to be used.
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'echo Skip increase rootfs;systemctl --no-reload disable resizefs.service'
+
+[Install]
+WantedBy=multi-user.target
