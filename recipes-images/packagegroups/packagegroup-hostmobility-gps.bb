@@ -6,7 +6,7 @@ inherit packagegroup
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     gpsd \
     gps-utils \
     "

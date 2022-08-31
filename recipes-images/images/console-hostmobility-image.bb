@@ -31,7 +31,7 @@ IMAGE_INSTALL += " \
     fs-init \
 "
 
-IMAGE_INSTALL_append_mx6 += " \
+IMAGE_INSTALL:append_mx6 += " \
     packagegroup-core-full-cmdline-utils \
     packagegroup-hostmobility-base \
     packagegroup-imx-tools-audio \

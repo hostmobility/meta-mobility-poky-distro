@@ -1,3 +1,3 @@
 # Handled by systemd
-PACKAGECONFIG_remove = "nss"
-PACKAGECONFIG_append = " modemmanager"
+PACKAGECONFIG:remove = "nss"
+PACKAGECONFIG:append = " modemmanager"

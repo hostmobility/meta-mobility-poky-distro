@@ -23,11 +23,11 @@ do_install() {
 
 PACKAGES += "${PN}-systemd-eth0 ${PN}-systemd-eth1 ${PN}-systemd-eth2"
 
-FILES_${PN}-systemd-eth0 = "${systemd_unitdir}/system/ifplugd.service"
-FILES_${PN}-systemd-eth1 = "${systemd_unitdir}/system/ifplugd1.service"
-FILES_${PN}-systemd-eth2 = "${systemd_unitdir}/system/ifplugd2.service"
+FILES:${PN}-systemd-eth0 = "${systemd_unitdir}/system/ifplugd.service"
+FILES:${PN}-systemd-eth1 = "${systemd_unitdir}/system/ifplugd1.service"
+FILES:${PN}-systemd-eth2 = "${systemd_unitdir}/system/ifplugd2.service"
 
 SYSTEMD_PACKAGES = "${PN}-systemd-eth0 ${PN}-systemd-eth1 ${PN}-systemd-eth2"
-SYSTEMD_SERVICE_${PN}-systemd-eth0 = "ifplugd.service"
-SYSTEMD_SERVICE_${PN}-systemd-eth1 = "ifplugd1.service"
-SYSTEMD_SERVICE_${PN}-systemd-eth2 = "ifplugd2.service"
+SYSTEMD_SERVICE:${PN}-systemd-eth0 = "ifplugd.service"
+SYSTEMD_SERVICE:${PN}-systemd-eth1 = "ifplugd1.service"
+SYSTEMD_SERVICE:${PN}-systemd-eth2 = "ifplugd2.service"

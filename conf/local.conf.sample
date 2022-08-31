@@ -1,8 +1,9 @@
 MACHINE ??= 'mx5-pt'
+TARGET_ARCH ?= "arm"
 DISTRO ?= 'fslc-x11'
 PACKAGE_CLASSES ?= 'package_ipk'
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
-USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+USER_CLASSES = "buildstats"
 PATCHRESOLVE = "noop"
 BB_DISKMON_DIRS ??= "\
     STOPTASKS,${TMPDIR},1G,100K \
@@ -13,25 +14,27 @@ BB_DISKMON_DIRS ??= "\
     ABORT,${DL_DIR},100M,1K \
     ABORT,${SSTATE_DIR},100M,1K \
     ABORT,/tmp,10M,1K"
-PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
-PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
-CONF_VERSION = "1"
+
+PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
+PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
+
+CONF_VERSION = "2"
 ACCEPT_FSL_EULA = "1"
 
 INHERIT += "rm_work"
 
 # Remove conflicting backends.
-DISTRO_FEATURES_remove = "vulkan "
+DISTRO_FEATURES:remove = "vulkan "
 
-DISTRO_FEATURES_append = " systemd"
+DISTRO_FEATURES:append = " systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 VIRTUAL-RUNTIME_initscripts = ""
 
-LICENSE_FLAGS_WHITELIST = "commercial"
+LICENSE_FLAGS_ACCEPTED = "commercial"
 
 DISTRO_FEED_PREFIX += "mobility"
 DISTRO_FEED_URI += "http://www.hostmobility.org:8008/ipk_bsp2/mobility"
 DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
 
-ERROR_QA_remove = "version-going-backwards"
+ERROR_QA:remove = "version-going-backwards"

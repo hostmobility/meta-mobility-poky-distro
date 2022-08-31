@@ -7,7 +7,7 @@ LICENSE = "MIT"
 
 require mobility-image.bb
 
-IMAGE_INSTALL_append += " \
+IMAGE_INSTALL:append += " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'packagegroup-xfce-base', '', d)} \
 "
 

@@ -3,7 +3,7 @@ DESCRIPTION = "Script to expand the rootfs to the full size of its partion, star
 LICENSE = "PD"
 PR = "r3"
 
-RRECOMMENDS_${PN} = "e2fsprogs-resize2fs"
+RRECOMMENDS:${PN} = "e2fsprogs-resize2fs"
 
 SRC_URI =  " \
     file://resizefs.sh \
@@ -26,6 +26,6 @@ do_install () {
 
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "resizefs.service"
+SYSTEMD_SERVICE:${PN} = "resizefs.service"
 
 inherit allarch systemd

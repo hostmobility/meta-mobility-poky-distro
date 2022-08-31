@@ -5,7 +5,7 @@ inherit packagegroup
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     mobile-broadband-provider-info \
     wvdial \
 "

@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += "\
   file://eth0.network \
@@ -7,7 +7,7 @@ SRC_URI += "\
   file://usb1.network \
   "
 
-do_install_append() {
+do_install:append() {
 	install -D -m0644 ${WORKDIR}/eth0.network ${D}${systemd_unitdir}/network/80-eth0.network
 	install -D -m0644 ${WORKDIR}/eth1.network ${D}${systemd_unitdir}/network/80-eth1.network
 	install -D -m0644 ${WORKDIR}/eth2.network ${D}${systemd_unitdir}/network/80-eth2.network

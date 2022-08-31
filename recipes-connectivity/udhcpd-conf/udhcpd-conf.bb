@@ -17,4 +17,4 @@ do_install() {
 }
 
 
-FILES_${PN} = "${sysconfdir}/udhcpd-*.conf"
+FILES:${PN} = "${sysconfdir}/udhcpd-*.conf"
