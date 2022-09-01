@@ -20,7 +20,7 @@ X11TOOLS = "\
     xprop \
 "
 
-IMAGE_INSTALL:append += " \
+IMAGE_INSTALL += " \
     packagegroup-hostmobility-net-extended \
     packagegroup-fsl-gstreamer1.0 \
     packagegroup-fsl-tools-gpu \
