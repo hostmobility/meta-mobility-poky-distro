@@ -3,7 +3,8 @@ DESCRIPTION = "Package group bringing in packages that are needed when working w
 
 inherit packagegroup
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+# disable sanity check for allarch packagegroup
+PACKAGE_ARCH = ""
 
 RDEPENDS:${PN} = " \
     can-utils \

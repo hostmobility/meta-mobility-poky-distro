@@ -4,7 +4,9 @@ DESCRIPTION = "Package group base applications"
 
 inherit packagegroup
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+# disable sanity check for allarch packagegroup
+PACKAGE_ARCH = ""
+
 
 RDEPENDS:${PN} = " \
     libgpiod \
