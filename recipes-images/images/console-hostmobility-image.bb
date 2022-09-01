@@ -37,7 +37,6 @@ IMAGE_INSTALL:append_mx6 += " \
     packagegroup-imx-tools-audio \
     ntpdate \
     rng-tools \
-    uart-test \
     dfu-util \
     u-boot-hostmobility-flash-mx5 \
 "
