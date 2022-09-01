@@ -22,6 +22,7 @@ TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server"
 IMAGE_INSTALL += " \
     packagegroup-base \
     packagegroup-hostmobility-can \
+    packagegroup-hostmobility-base \
     packagegroup-hostmobility-net-minimal \
     packagegroup-hostmobility-gps \
     udev-extra-rules \
@@ -31,13 +32,15 @@ IMAGE_INSTALL += " \
     fs-init \
 "
 
-IMAGE_INSTALL:append_mx6 += " \
+IMAGE_INSTALL:imx-mainline-bsp += " \
     packagegroup-core-full-cmdline-utils \
-    packagegroup-hostmobility-base \
     packagegroup-imx-tools-audio \
     ntpdate \
     rng-tools \
     dfu-util \
+"
+
+IMAGE_INSTALL:mx5-pt += " \
     u-boot-hostmobility-flash-mx5 \
 "
 
