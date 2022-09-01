@@ -11,7 +11,7 @@ SRC_URI =  " \
     file://COPYING \
 "
 
-LIC_FILES_CHKSUM = "file://${WORKDIR}/COPYING;md5=49a6e0f1b11a9a229afeaa41a911b498"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/COPYING;md5=1bd2db74784eee6f62c52e56fba2d5b7"
 
 do_compile () {
 }
