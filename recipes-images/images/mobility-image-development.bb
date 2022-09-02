@@ -2,14 +2,14 @@ DESCRIPTION = "A console-only image that includes gstreamer packages, \
 Freescale's multimedia packages (VPU and GPU) when available, and \
 test and benchmark applications."
 
-IMAGE_FEATURES += " \
+IMAGE_FEATURES:append = " \
     tools-debug \
     tools-profile \
     splash \
 "
 require mobility-image.bb
 
-IMAGE_EXTRA_INSTALL += " \
+IMAGE_INSTALL:append = " \
     packagegroup-base-extended \
     packagegroup-fsl-gstreamer1.0-full \
     packagegroup-fsl-tools-gpu-external \

@@ -11,7 +11,7 @@ IMAGE_LINGUAS = "en-us"
 DISTRO_UPDATE_ALTERNATIVES ??= ""
 ROOTFS_PKGMANAGE_PKGS ?= '${@oe.utils.conditional("ONLINE_PACKAGE_MANAGEMENT", "none", "", "${ROOTFS_PKGMANAGE} ${DISTRO_UPDATE_ALTERNATIVES}", d)}'
 
-IMAGE_FEATURES += " \
+IMAGE_FEATURES:append = " \
     debug-tweaks \
     ssh-server-openssh \
 "
@@ -19,7 +19,7 @@ IMAGE_FEATURES += " \
 #For packagegroup-basic use this instead of sshdropbear
 TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server"
 
-IMAGE_INSTALL += " \
+IMAGE_INSTALL:append = " \
     packagegroup-base \
     packagegroup-hostmobility-can \
     packagegroup-hostmobility-base \
@@ -32,7 +32,7 @@ IMAGE_INSTALL += " \
     fs-init \
 "
 
-IMAGE_INSTALL:imx-mainline-bsp += " \
+IMAGE_INSTALL:append:imx-mainline-bsp = " \
     packagegroup-core-full-cmdline-utils \
     packagegroup-imx-tools-audio \
     ntpdate \
@@ -40,7 +40,7 @@ IMAGE_INSTALL:imx-mainline-bsp += " \
     dfu-util \
 "
 
-IMAGE_INSTALL:mx5-pt += " \
+IMAGE_INSTALL:append:mx5-pt = " \
     u-boot-hostmobility-flash-mx5 \
 "
 
