@@ -30,10 +30,10 @@ IMAGE_INSTALL:append = " \
     minicom \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     fs-init \
+    packagegroup-core-full-cmdline-utils \
 "
 
 IMAGE_INSTALL:append:imx-mainline-bsp = " \
-    packagegroup-core-full-cmdline-utils \
     packagegroup-imx-tools-audio \
     ntpdate \
     rng-tools \
