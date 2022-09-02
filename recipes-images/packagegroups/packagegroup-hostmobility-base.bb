@@ -4,15 +4,12 @@ DESCRIPTION = "Package group base applications"
 
 inherit packagegroup
 
-# disable sanity check for allarch packagegroup
-PACKAGE_ARCH = ""
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 
 RDEPENDS:${PN} = " \
-    libgpiod \
     libgpiod-tools \
     minicom \
-    libssl \
     lrzsz \
     lmsensors-sensors \
     hdparm \
