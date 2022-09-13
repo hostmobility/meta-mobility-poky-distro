@@ -3,7 +3,7 @@ Description=start resize script to increase rootfs to its partition full size
 
 [Service]
 Type=simple
-ExecStart=/bin/sh -c 'sleep 5 ; /usr/sbin/resizefs.sh mmcblk2 mmcblk2p1'
+ExecStart=/bin/sh -c 'sleep 5 ; /usr/sbin/resizefs.sh mmcblk2 mmcblk2p2'
 
 [Install]
 WantedBy=multi-user.target
