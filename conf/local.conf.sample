@@ -24,7 +24,7 @@ ACCEPT_FSL_EULA = "1"
 INHERIT += "rm_work"
 
 # Remove conflicting backends.
-DISTRO_FEATURES:remove = "vulkan "
+DISTRO_FEATURES:remove = "vulkan x11"
 
 DISTRO_FEATURES:append = " systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
