@@ -13,16 +13,25 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-openembedded/meta-networking \
   ${BSPDIR}/sources/meta-openembedded/meta-python \
   ${BSPDIR}/sources/meta-openembedded/meta-gnome \
+  ${BSPDIR}/sources/meta-openembedded/meta-filesystems \
   \
   ${BSPDIR}/sources/meta-freescale \
+  ${BSPDIR}/sources/meta-freescale-3rdparty \
   ${BSPDIR}/sources/meta-freescale-distro \
+  ${BSPDIR}/sources/meta-freescale-ml \
   \
   ${BSPDIR}/sources/meta-hostmobility-bsp \
   ${BSPDIR}/sources/meta-browser/meta-chromium \
   ${BSPDIR}/sources/meta-clang \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
+  \
+  \
+  ${BSPDIR}/sources/meta-qt5 \
+  ${BSPDIR}/sources/meta-python2 \
+  ${BSPDIR}/sources/meta-swupdate \
+  ${BSPDIR}/sources/meta-virtualization \
+  ${BSPDIR}/sources/meta-variscite-bsp \
+  ${BSPDIR}/sources/meta-variscite-sdk \
+  ${BSPDIR}/sources/meta-variscite-hab \
 "
 
-# i.MX Yocto Project Release layers
-BBLAYERS += "${BSPDIR}/sources/meta-imx/meta-bsp"
-BBLAYERS += "${BSPDIR}/sources/meta-imx/meta-sdk"
