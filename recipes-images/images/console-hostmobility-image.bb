@@ -43,14 +43,14 @@ IMAGE_INSTALL:append:mx5-pt = " \
     u-boot-hostmobility-flash-mx5 \
 "
 
-IMAGE_INSTALL_append_mx8 += " \
+IMAGE_INSTALL:append:mx8 = " \
     packagegroup-core-full-cmdline-utils \
     libgpiod \
     libgpiod-tools \
     libiio \
-    kernel-module-tcan1146 \
     packagegroup-hostmobility-net-extended \
 "
+# TODO: add kernel-module-tcan1146 above
 
 # This variscite bbappend disables systemd-networkd and systemd-resolved.
 # We want to have these so we mask this out.
@@ -65,4 +65,4 @@ export IMAGE_BASENAME = "console-hostmobility-image"
 
 inherit core-image
 
-TOOLCHAIN_TARGET_TASK_append = " kernel-devsrc"
+TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
