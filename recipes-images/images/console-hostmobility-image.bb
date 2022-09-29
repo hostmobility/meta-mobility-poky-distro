@@ -41,7 +41,6 @@ IMAGE_INSTALL:append:imx-mainline-bsp = " \
 
 IMAGE_INSTALL:append:mx5-pt = " \
     u-boot-hostmobility-flash-mx5 \
-    rng-tools \
 "
 
 IMAGE_DEV_MANAGER   = "udev"
