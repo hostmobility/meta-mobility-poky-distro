@@ -1,6 +1,6 @@
 MACHINE ??= 'mx5-pt'
 TARGET_ARCH ?= "arm"
-DISTRO ?= 'fslc-x11'
+DISTRO ?= 'fslc-wayland'
 PACKAGE_CLASSES ?= 'package_ipk'
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
 USER_CLASSES = "buildstats"
@@ -24,7 +24,7 @@ ACCEPT_FSL_EULA = "1"
 INHERIT += "rm_work"
 
 # Remove conflicting backends.
-DISTRO_FEATURES:remove = "vulkan x11"
+DISTRO_FEATURES:remove = "x11 directfb vulkan "
 
 DISTRO_FEATURES:append = " systemd"
 VIRTUAL-RUNTIME_init_manager = "systemd"
@@ -38,3 +38,5 @@ DISTRO_FEED_URI += "http://www.hostmobility.org:8008/${DISTRO_CODENAME}"
 DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
 
 ERROR_QA:remove = "version-going-backwards"
+
+DL_DIR ?= "${BSPDIR}/downloads/"
