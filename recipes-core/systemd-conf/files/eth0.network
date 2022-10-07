@@ -1,5 +1,8 @@
 [Match]
 Name=eth0
+Type=ether
+KernelCommandLine=!nfsroot
+KernelCommandLine=!ip
 
 [Network]
 DHCP=yes
@@ -7,3 +10,8 @@ DHCP=yes
 [Address]
 Label=eth0:0
 Address=192.168.1.200/24
+
+[DHCP]
+UseMTU=yes
+RouteMetric=10
+ClientIdentifier=mac
