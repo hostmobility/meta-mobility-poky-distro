@@ -27,4 +27,4 @@ IMAGE_INSTALL:append = " \
                          'weston-xwayland xterm', '', d)} \
 "
 
-export IMAGE_BASENAME = "mobility-image"
+export IMAGE_BASENAME = "mobility-image-chromium"
