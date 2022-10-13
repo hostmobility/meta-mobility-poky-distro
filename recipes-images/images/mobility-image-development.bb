@@ -7,7 +7,7 @@ IMAGE_FEATURES:append = " \
     tools-profile \
     splash \
 "
-require mobility-image.bb
+require mobility-image-desktop.bb
 
 IMAGE_INSTALL:append = " \
     packagegroup-base-extended \
@@ -15,15 +15,10 @@ IMAGE_INSTALL:append = " \
     packagegroup-fsl-tools-gpu-external \
     packagegroup-imx-tools-audio \
     packagegroup-fsl-tools-benchmark \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'v4l-utils', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'gtk+3-demo', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                          'weston-examples clutter-1.0-examples', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', "${X11TOOLS}", "", d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                          'weston weston-init', '', d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', \
-                         'weston-xwayland xterm', '', d)} \
     python3-pip \
     python3-pyserial \
     curl \
