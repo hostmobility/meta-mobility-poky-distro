@@ -6,11 +6,10 @@ inherit packagegroup
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = " \
-    libgpiod \
+
+RDEPENDS:${PN} = " \
     libgpiod-tools \
     minicom \
-    libssl \
     lrzsz \
     lmsensors-sensors \
     hdparm \

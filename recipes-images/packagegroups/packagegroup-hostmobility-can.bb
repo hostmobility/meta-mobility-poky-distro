@@ -5,9 +5,8 @@ inherit packagegroup
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     can-utils \
-    libsocketcan \
     iproute2 \
 "
 

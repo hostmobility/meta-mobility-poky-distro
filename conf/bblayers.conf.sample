@@ -12,12 +12,13 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-openembedded/meta-multimedia \
   ${BSPDIR}/sources/meta-openembedded/meta-networking \
   ${BSPDIR}/sources/meta-openembedded/meta-python \
-  ${BSPDIR}/sources/meta-openembedded/meta-xfce \
   ${BSPDIR}/sources/meta-openembedded/meta-gnome \
   \
   ${BSPDIR}/sources/meta-freescale \
   ${BSPDIR}/sources/meta-freescale-distro \
   \
   ${BSPDIR}/sources/meta-hostmobility-bsp \
+  ${BSPDIR}/sources/meta-browser/meta-chromium \
+  ${BSPDIR}/sources/meta-clang \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
 "

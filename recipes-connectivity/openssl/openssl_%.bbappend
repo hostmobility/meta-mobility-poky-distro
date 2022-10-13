@@ -1,1 +1,1 @@
-CFLAG_append_class-native = " -fPIC"
+CFLAG:append:class-native = " -fPIC"

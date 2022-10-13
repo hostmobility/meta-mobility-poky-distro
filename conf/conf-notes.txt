@@ -1,8 +1,9 @@
 Host Mobility targets are:
     1. console-hostmobility-image *console only*
-    2. mobility-image *Graphic based console window and audio*
-    3. mobility-image-xfce *Desktop example version*
-    4. mobility-image-development *Development with graphic*
+    2. mobility-image *Graphics based console window and audio*
+    3. mobility-image-desktop *Weston Wayland desktop*
+    4. mobility-image-chromium *Weston Wayland desktop with chromium web browser*
+    5. mobility-image-development *Development with graphics*
 Machine compatible
     mx5-pt *include graphic*
 

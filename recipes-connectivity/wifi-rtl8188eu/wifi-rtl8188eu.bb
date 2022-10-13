@@ -20,6 +20,6 @@ do_install () {
     install -p -m 644 ${S}/rtl8188eufw.bin ${D}${nonarch_base_libdir}/firmware/rtl8188eufw.bin
 }
 
-FILES_${PN} += "${nonarch_base_libdir}/firmware/rtl8188eufw.bin"
+FILES:${PN} += "${nonarch_base_libdir}/firmware/rtl8188eufw.bin"
 
-RPROVIDES_${PN} += "kernel-module-rtl8188eu"
+RPROVIDES:${PN} += "kernel-module-rtl8188eu"
