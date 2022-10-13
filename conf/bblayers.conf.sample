@@ -12,7 +12,6 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-openembedded/meta-multimedia \
   ${BSPDIR}/sources/meta-openembedded/meta-networking \
   ${BSPDIR}/sources/meta-openembedded/meta-python \
-  ${BSPDIR}/sources/meta-openembedded/meta-xfce \
   ${BSPDIR}/sources/meta-openembedded/meta-gnome \
   \
   ${BSPDIR}/sources/meta-freescale \
