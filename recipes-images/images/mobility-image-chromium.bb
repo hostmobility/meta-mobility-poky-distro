@@ -18,6 +18,15 @@ X11TOOLS = "\
     xprop \
 "
 
+inherit extrausers
+EXTRA_USERS_PARAMS = " \
+    useradd -p hmuser hmuser; \
+    groupadd hmusers; \
+    usermod -s /bin/sh hmuser; \
+    useradd -g hmusers hmuser; \
+    "
+
+
 IMAGE_INSTALL:append = " \
     packagegroup-fsl-gstreamer1.0-full \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', "${X11TOOLS}", "", d)} \
