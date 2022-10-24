@@ -5,7 +5,11 @@ Require layers in your bblayer.conf to work: \
     meta-games \
     meta-game-emulators \
 "
-
+IMAGE_FEATURES += "\
+    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'weston', \
+       bb.utils.contains('DISTRO_FEATURES',     'x11', 'x11-base', \
+                                                       '', d), d)} \
+"
 
 LICENSE = "MIT"
 
@@ -20,7 +24,8 @@ IMAGE_INSTALL:append = " \
     neverball-data \
     mednafen \
     freeciv \
-    maelstrom \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', \
+                         'weston-xwayland xterm supertuxkart supertux2 maelstrom', '', d)} \
 "
 
 export IMAGE_BASENAME = "mobility-image-games"
