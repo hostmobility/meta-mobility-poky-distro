@@ -19,9 +19,7 @@ IMAGE_INSTALL:append = " \
                          'weston-examples clutter-1.0-examples', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
                          'weston weston-init', '', d)} \
-    python3-pip \
-    python3-pyserial \
-    curl \
+    packagegroup-hostmobility-development \
 "
 
 export IMAGE_BASENAME = "mobility-image-development"
