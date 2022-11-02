@@ -33,7 +33,7 @@ IMAGE_INSTALL:append = " \
     packagegroup-core-full-cmdline-utils \
 "
 
-IMAGE_INSTALL:append:imx-mainline-bsp = " \
+IMAGE_INSTALL:append:mxv-base = " \
     packagegroup-imx-tools-audio \
     ntpdate \
     dfu-util \
