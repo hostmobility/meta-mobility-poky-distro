@@ -1,6 +1,7 @@
 MACHINE ??= 'mx5-pt'
 TARGET_ARCH ?= "arm"
 DISTRO ?= 'fslc-wayland'
+IMX_DEFAULT_BSP = "mainline"
 PACKAGE_CLASSES ?= 'package_ipk'
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
 USER_CLASSES = "buildstats"
