@@ -22,3 +22,7 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-clang \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
 "
+
+# i.MX Yocto Project Release layers
+BBLAYERS += "${BSPDIR}/sources/meta-imx/meta-bsp"
+BBLAYERS += "${BSPDIR}/sources/meta-imx/meta-sdk"
