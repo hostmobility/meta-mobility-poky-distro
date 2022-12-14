@@ -21,17 +21,17 @@ logger "resizing ${DISK}p$PART to fill its full partition size"
 #DISK_SIZE=`cat /sys/block/$DISK/size`
 
 # get partition start and size
-PART_OFF=`cat /sys/block/$DISK/${DISK}p$PART/start`
+PART_OFF=$(cat /sys/block/$DISK/${DISK}p$PART/start)
 #PART_SIZE=`cat /sys/block/$DISK/${DISK}p$PART/size`
 
 # Resize now
-printf "d\n$PART\nn\np\n$PART_OFF\n\nw\n" | fdisk -B  /dev/mmcblk0
+printf "d\n$PART\nn\np\n\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
 resize2fs /dev/${DISK}p$PART
 
 #Check size or reboot might be needed to get full resize.
 DISK_SPACE_AVAILABLE=$(df --output=avail "$PWD" | sed '1d;s/[^0-9]//g')
-if [[ $DISK_SPACE_AVAILABLE -le 1000000 ]]; then
-	echo "Warning: to litle space avaible: $(df --output=avail -h ),\n rebooting system..." systemd-cat -p emerg
+if (( DISK_SPACE_AVAILABLE <= 1000000 )); then
+	echo "Warning: too little space available: $(df --output=avail -h ),\n rebooting system..." systemd-cat -p emerg
 	reboot
 	exit 1
 fi

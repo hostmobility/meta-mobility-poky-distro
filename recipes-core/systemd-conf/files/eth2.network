@@ -2,7 +2,7 @@
 Name=eth2
 Type=ether
 KernelCommandLine=!nfsroot
-KernelCommandLine=!ip
+
 
 [Network]
 DHCP=yes
