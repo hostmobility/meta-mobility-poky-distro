@@ -13,14 +13,13 @@ RDEPENDS:${PN} = " \
     curl \
     gdb \
     gdbserver \
-    glibc-dbg \
     packagegroup-sdk-target \
     ethtool \
     packagegroup-hostmobility-net-extended \
     pm-utils \
     systemd-analyze \
     hdparm \
-    iperf \
+    packagegroup-fsl-tools-benchmark \
     i2c-tools \
     memtester \
     stress \
