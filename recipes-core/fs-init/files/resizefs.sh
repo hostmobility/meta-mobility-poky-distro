@@ -25,7 +25,14 @@ PART_OFF=$(cat /sys/block/$DISK/${DISK}p$PART/start)
 #PART_SIZE=`cat /sys/block/$DISK/${DISK}p$PART/size`
 
 # Resize now
-printf "d\n$PART\nn\np\n\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
+if [ -f "/opt/hm/mx4_env" ]; then
+    #For mx4 use one less \n before $PART_OFF for some strnge reason. 
+    #if the mx4_env is not there we assume machines like Mxv.
+    printf "d\n$PART\nn\np\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
+else
+    printf "d\n$PART\nn\np\n\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
+fi
+
 resize2fs /dev/${DISK}p$PART
 
 #Check size or reboot might be needed to get full resize.
