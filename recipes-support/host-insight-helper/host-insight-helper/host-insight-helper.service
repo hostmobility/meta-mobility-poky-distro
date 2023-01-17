@@ -1,0 +1,12 @@
+[Unit]
+Description=Installs various files in /opt/host-insight-client-helper
+Before=host-insight-client.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh host-insight-client-helper.sh
+WorkingDirectory=/opt/host-insight-client-helper/
+
+[Install]
+Alias=host-insight-client-helper.service
+WantedBy=multi-user.target
