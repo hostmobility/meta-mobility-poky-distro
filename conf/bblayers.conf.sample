@@ -20,12 +20,6 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-freescale-distro \
   ${BSPDIR}/sources/meta-freescale-ml \
   \
-  ${BSPDIR}/sources/meta-hostmobility-bsp \
-  ${BSPDIR}/sources/meta-browser/meta-chromium \
-  ${BSPDIR}/sources/meta-clang \
-  ${BSPDIR}/sources/meta-mobility-poky-distro \
-  \
-  \
   ${BSPDIR}/sources/meta-qt5 \
   ${BSPDIR}/sources/meta-python2 \
   ${BSPDIR}/sources/meta-swupdate \
@@ -33,5 +27,9 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-variscite-bsp \
   ${BSPDIR}/sources/meta-variscite-sdk \
   ${BSPDIR}/sources/meta-variscite-hab \
+  \
+  \
+  ${BSPDIR}/sources/meta-hostmobility-bsp \
+  ${BSPDIR}/sources/meta-mobility-poky-distro \
 "
 
