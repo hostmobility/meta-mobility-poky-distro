@@ -43,12 +43,17 @@ IMAGE_INSTALL:append:mx5-pt = " \
     u-boot-hostmobility-flash-mx5 \
 "
 
-IMAGE_INSTALL:append:mx8 = " \
+IMAGE_INSTALL:append:imx8mp-var-dart = " \
     packagegroup-core-full-cmdline-utils \
     libgpiod \
     libgpiod-tools \
     libiio \
     packagegroup-hostmobility-net-extended \
+    curl \
+    iperf3 \
+    tmux \
+    ethtool \
+    nfs-utils-client\
 "
 # TODO: add kernel-module-tcan1146 above
 
