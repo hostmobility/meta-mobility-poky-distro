@@ -10,7 +10,7 @@ which is used for following products
 
 It is based on the Community Freescale BSP,
 
-### Setup the Yocto enviroment:
+### Setup the Yocto environment:
 check the readme from https://github.com/hostmobility/mobility-poky-platform
 
 ### Host Mobility targets are:
