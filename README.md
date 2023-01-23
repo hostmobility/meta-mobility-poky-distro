@@ -8,8 +8,6 @@ which is used for following products
 - MX-V PT (mx5-pt)
 - Hmx (soon to be introdused)
 
-It is based on the Community Freescale BSP,
-
 ### Setup the Yocto environment:
 check the readme from https://github.com/hostmobility/mobility-poky-platform
 
@@ -25,11 +23,6 @@ check the readme from https://github.com/hostmobility/mobility-poky-platform
 - mx4-t30 only console
 - HMX only console (comming soon)
     
-### Use the images
 
-Output images:
-
-- `tmp/deploy/images/mx5-pt/mobility-image-mx5-pt.wic.gz`:
-  This image is used to provision a device
 
 
