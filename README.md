@@ -5,7 +5,7 @@ which is used for following products
 
 - MX-4 C61 (mx4-c61)
 - MX-4 T30 (mx4-t30) (both T30 and T30FR)
-- MxV pt (mx5-pt)
+- MX-V PT (mx5-pt)
 - Hmx (soon to be introdused)
 
 It is based on the Community Freescale BSP,
