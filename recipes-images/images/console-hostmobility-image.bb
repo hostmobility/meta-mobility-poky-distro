@@ -54,6 +54,7 @@ IMAGE_INSTALL:append:imx8mp-var-dart = " \
     tmux \
     ethtool \
     nfs-utils-client\
+    mx5-platform-version\
 "
 # TODO: add kernel-module-tcan1146 above
 
