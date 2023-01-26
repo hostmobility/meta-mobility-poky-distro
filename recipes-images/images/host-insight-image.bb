@@ -11,9 +11,7 @@ IMAGE_FEATURES:append = "debug-tweaks"
 
 IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-net-extended \
-    host-insight-client \
-    host-insight-m \
-    host-insight-helper \
+    packagegroup-hostmobility-host-insight \
 "
 
 export IMAGE_BASENAME = "host-insight-image"
