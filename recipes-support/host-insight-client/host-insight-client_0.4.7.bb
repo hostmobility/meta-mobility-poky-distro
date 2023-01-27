@@ -8,7 +8,7 @@ SRC_URI = "git://git@github.com/hostmobility/host-insight-client.git;protocol=ss
 
 SRC_URI_client[md5sum] = "da0ebecd284d7f4afcfc226be2e648b6"
 SRC_URI_client[sha256sum] = "0019f1ab11aa8364b17727a7b6916a8a07fad25aefe23c45d33d4d4db4f7b6f1"
-SRCREV_client = "049b340ba93e852ee8b56eba8352c5c5f620ea0a"
+SRCREV_client = "359719dfe37cc6888a06af16e82f05840627c1a3"
 
 SRC_URI_proto[md5sum] = "da0ebecd284d7f4afcfc226be2e648b6"
 SRC_URI_proto[sha256sum] = "0019f1ab11aa8364b17727a7b6916a8a07fad25aefe"
