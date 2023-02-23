@@ -44,19 +44,15 @@ IMAGE_INSTALL:append:mx5-pt = " \
 "
 
 IMAGE_INSTALL:append:imx8mp-var-dart = " \
-    packagegroup-core-full-cmdline-utils \
-    libgpiod \
-    libgpiod-tools \
     libiio \
     packagegroup-hostmobility-net-extended \
     curl \
     iperf3 \
     tmux \
     ethtool \
-    nfs-utils-client\
-    mx5-platform-version\
+    nfs-utils-client \
+    mx5-platform-version \
 "
-# TODO: add kernel-module-tcan1146 above
 
 # This variscite bbappend disables systemd-networkd and systemd-resolved.
 # We want to have these so we mask this out.
