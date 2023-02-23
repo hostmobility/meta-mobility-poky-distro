@@ -1,14 +1,14 @@
-# Host mobility hmx version with mny/config
+# Host mobility hmx version with mnt/config
 
-/dev/root            /                    auto       defaults              1  1
+/dev/root            /                    auto       defaults,noatime              1  1
 proc                 /proc                proc       defaults              0  0
 devpts               /dev/pts             devpts     mode=0620,ptmxmode=0666,gid=5      0  0
 tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,strictatime 0  0
 tmpfs                /var/volatile        tmpfs      defaults              0  0
 
 # uncomment this if your device has a SD/MMC/Transflash slot
-/dev/mmcblk1p1       /media/sdcard          auto       defaults,noauto,automount  0  0
+/dev/mmcblk1p1       /media/sdcard          auto       defaults,noauto,automount,noatime   0  0
 
 #Use /mnt/config uncomment if using eMMC or SD card (uncomments in hm autostart service). 
-#eMMC /dev/mmcblk2p2       /mnt/config        auto       defaults,nofail,automount  0  0
-#SD /dev/mmcblk1p2       /mnt/config        auto       defaults,nofail,automount  0  0
+#eMMC /dev/mmcblk2p2       /mnt/config        auto       defaults,nofail,automount,noatime   0  0
+#SD /dev/mmcblk1p2       /mnt/config        auto       defaults,nofail,automount,noatime   0  0
