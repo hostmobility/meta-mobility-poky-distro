@@ -39,9 +39,6 @@ IMAGE_INSTALL:append:mxv-base = " \
     dfu-util \
 "
 
-IMAGE_INSTALL:append:mx5-pt = " \
-    u-boot-hostmobility-flash-mx5 \
-"
 
 IMAGE_INSTALL:append:imx8mp-var-dart = " \
     libiio \
