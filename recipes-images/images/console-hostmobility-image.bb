@@ -43,6 +43,21 @@ IMAGE_INSTALL:append:mx5-pt = " \
     u-boot-hostmobility-flash-mx5 \
 "
 
+IMAGE_INSTALL:append:imx8mp-var-dart = " \
+    libiio \
+    packagegroup-hostmobility-net-extended \
+    curl \
+    iperf3 \
+    tmux \
+    ethtool \
+    nfs-utils-client \
+    mx5-platform-version \
+"
+
+# This variscite bbappend disables systemd-networkd and systemd-resolved.
+# We want to have these so we mask this out.
+BBMASK = "meta-variscite-imx/recipes-core/systemd/systemd_%.bbappend"
+
 IMAGE_DEV_MANAGER   = "udev"
 IMAGE_INIT_MANAGER  = "systemd"
 IMAGE_INITSCRIPTS   = " "
@@ -52,3 +67,4 @@ export IMAGE_BASENAME = "console-hostmobility-image"
 
 inherit core-image
 
+TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"
