@@ -18,7 +18,7 @@ set -e
 
 # command line parameters
 command="$1" # "up" or "down"
-udc_device="$2" # a udc device name, such as "musb-hdrc.1.auto"
+udc_device="$2" # a udc device name, such as "musb-hdrc.1.auto, check with ls /sys/class/udc/"
 
 g="/sys/kernel/config/usb_gadget/g1"
 
