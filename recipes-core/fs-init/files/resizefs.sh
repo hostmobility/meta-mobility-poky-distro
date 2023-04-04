@@ -23,13 +23,17 @@ if grep "/$DISK" /proc/cmdline; then
 
     # get partition start and size
     PART_OFF=$(cat /sys/block/$DISK/${DISK}p$PART/start)
-    #For only variant 1 hmx that use config parition better to move to seperate distro..
-    if grep "HM010-1-" /proc/device-tree/chosen/part-number; then
-        TOTAL_SIZE=$(cat /sys/block/$DISK/size)
-        MOUNT_CONFIG_4GB_SIZE_BLOCK=8388608
-        MAX_SIZE=$(($TOTAL_SIZE - $MOUNT_CONFIG_4GB_SIZE_BLOCK - 512))
+
+    TOTAL_SIZE=$(cat /sys/block/$DISK/size)
+    MOUNT_CONFIG_4GB_SIZE_BLOCK=8388608
+    MAX_SIZE=$(($TOTAL_SIZE - $MOUNT_CONFIG_4GB_SIZE_BLOCK - 512))
+    if [ -f "/opt/hm/mx4_env" ]; then
+        #For mx4 use one less \n before $PART_OFF for some strnge reason. 
+        #if the mx4_env is not there we assume machines like Mxv.
+        printf "d\n$PART\nn\np\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
+    else
         printf "d\n$PART\nn\np\n\n$PART_OFF\n$MAX_SIZE\nw\n" | fdisk -B  /dev/${DISK}
-        #create config partition only if it is not already mounted.
+            #create config partition only if it is not already mounted.
         if ! mount | grep "/mnt/config/"; then
             PART_SIZE=$(cat /sys/block/$DISK/${DISK}p$PART/size)
             CONFIG_START=$(($PART_OFF + $PART_SIZE))
@@ -41,16 +45,8 @@ if grep "/$DISK" /proc/cmdline; then
             mount /dev/${DISK}p$((PART + 1)) /mnt/config/
             echo "/dev/${DISK}p$((PART + 1))       /mnt/config        auto       defaults,noatime   0  0" > /etc/fstab
         fi
-    else
-        # Resize now
-        if [ -f "/opt/hm/mx4_env" ]; then
-            #For mx4 use one less \n before $PART_OFF for some strnge reason. 
-            #if the mx4_env is not there we assume machines like Mxv.
-            printf "d\n$PART\nn\np\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
-        else
-            printf "d\n$PART\nn\np\n\n$PART_OFF\n\nw\n" | fdisk -B  /dev/${DISK}
-        fi
     fi
+
     resize2fs /dev/${DISK}p$PART
 
     #Check size or reboot might be needed to get full resize.
