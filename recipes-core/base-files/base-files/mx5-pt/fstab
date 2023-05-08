@@ -10,4 +10,4 @@ tmpfs                /var/volatile        tmpfs      defaults              0  0
 # on a SD/MMC card.
 #
 # If your SD/MMC has a different partition layout you need to customize this file
-/dev/mmcblk1p1       /media/mmcblk1p1        auto       defaults,auto,nofail  0  0
+/dev/mmcblk1p1       /media/sdcard        auto       defaults,auto,nofail  0  0
