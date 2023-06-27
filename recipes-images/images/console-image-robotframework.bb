@@ -16,6 +16,7 @@ IMAGE_INSTALL:append = " \
     tmux \
     iperf3 \
     ref-unit-setup \
+    uuu \
 "
 
 export IMAGE_BASENAME = "console-image-robotframework"
