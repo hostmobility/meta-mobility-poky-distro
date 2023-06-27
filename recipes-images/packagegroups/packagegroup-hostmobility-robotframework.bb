@@ -13,17 +13,10 @@ RDEPENDS:${PN} = " \
     python3-numpy \
     python3-wheel \
     python3-pip \
-    python3-django \
     python3-numpy \
     python3-flask \
     python3-tkinter \
+    python3-can \
 "
-#    not buildable python3-robotframework-requests use pip3 install robotframework-requests and  python3-robotframework-sshlibrary \ and python3-robotframework-dialogs \
-#python-django-common (django-admin startproject myproject), ej bygbart.
+#    not buildable python3-robotframework-requests use pip3 install robotframework-requests and  python3-robotframework-sshlibrary and python3-robotframework-dialogs. Use ref_unit_setup.bash instead.
 
-#TODO
-#    glibc
-#    libstdc++
-#    libatomic1
-#    wget
-#    curl
