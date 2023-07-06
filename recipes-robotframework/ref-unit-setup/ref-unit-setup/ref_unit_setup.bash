@@ -66,6 +66,8 @@ cat << EOF >> /etc/hosts
 
 192.168.4.200 dut_eth3
 192.168.3.201 ref_eth3
+
+192.168.250.1 dut_usb
 EOF
 
 
