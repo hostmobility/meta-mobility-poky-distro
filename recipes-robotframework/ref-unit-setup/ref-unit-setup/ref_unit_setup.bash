@@ -38,11 +38,13 @@ pip3 install robotframework-requests
 
 python3 -m pip install "python-can"
 
+set +e
 # use our ssh/config (maybe unneded if we not remote direct to the DUT unit)
 cp -f /etc/ssh/ssh_config /etc/ssh/ssh/ssh_config_old
 cp -f /etc/ssh/ref_unit_ssh_config /etc/ssh/ssh/ssh_config
 # reload ip address
 networkctl reload
+set -e
 
 #Set host name
 serial_number=0
