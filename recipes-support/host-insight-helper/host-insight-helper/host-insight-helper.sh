@@ -24,8 +24,15 @@ assign_uid_and_fallback_domain()
 {
   # Get the serial number of the device.
   if [ "$(cat /etc/platform-system-type)" = "c61" ]; then
-    # Sleep until we know that pic_upgrade is complete
-    sleep 30
+    if command -v pgrep >/dev/null 2>&1; then
+      while pgrep -f "/opt/hm/pic_upgrade.sh" >/dev/null 2>&1; do
+        # pic_upgrade is still running
+        sleep 1
+      done
+    else
+      # Sleep until we suspect that pic_upgrade is complete
+      sleep 30
+    fi
     echo "uid = \"$(cat /opt/hm/pic_attributes/ctrl_serial_nr)\"" > "$ID_PATH"
   else
     echo "uid = \"$(cat /proc/device-tree/chosen/serial-number)\"" > "$ID_PATH"
