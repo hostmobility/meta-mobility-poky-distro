@@ -3,7 +3,16 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 
-SRC_URI += "\
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/README.md;md5=15172a07c9a201b68c4dc6611f280362"
+
+SRCREV = "abcbfc3470eaecf0e3f6a86873e7ccc09e2d055f"
+PV = "1.2"
+
+SRC_URI[md5sum] = "009c73c6e18970d201b3168158cff2f3"
+SRC_URI[sha256sum] = "0fa00df5e70e3044b294b41c6f1d1d28254997bbe0c2b9fbfacaf62493f4e769"
+SRC_URI = " \
+	https://gitlab.com/hostmobility/test-toolkit.git;protocol=https;branch=main" \
 	file://ref_eth0.network \
 	file://ref_eth1.network \
 	file://ref_eth2.network \
@@ -32,6 +41,8 @@ do_install() {
 	install -d ${D}${sysconfdir}
 	install -d ${D}${sysconfdir}/ssh
 	install -d ${D}/opt/hm/
+	install -d ${D}/home/root/HostMobilityProductionTest
+	install -d ${D}/home/root/HostMobilityProductionTestGUI
 
 	# setup a ref network that is on same network as dut.
 	install -D -m0644 ${WORKDIR}/ref_eth0.network ${D}${systemd_unitdir}/network/81-eth0.network
@@ -53,6 +64,8 @@ do_install() {
 	# ssh config to allow none strict host access to DUT.
 	install -m 0644 ${WORKDIR}/ref_unit_ssh_config ${D}${sysconfdir}/ssh/ref_unit_ssh_config
 
+	install -m 0644 ${WORKDIR}/HostMobilityProductionTest/* ${D}/home/root/HostMobilityProductionTest
+	install -m 0644 ${WORKDIR}/HostMobilityProductionTestGUI/* ${D}/home/root/HostMobilityProductionTestGUI
 }
 
 FILES:${PN} = "\
@@ -66,4 +79,6 @@ FILES:${PN} = "\
     ${systemd_unitdir}/network/81-eth3.network \
     ${systemd_unitdir}/network/80-can.network \
 	${sysconfdir}/ssh/ref_unit_ssh_config \
+	/home/root/HostMobilityProductionTest \
+	/home/root/HostMobilityProductionTestGUI \
 "

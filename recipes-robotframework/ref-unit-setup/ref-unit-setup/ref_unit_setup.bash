@@ -72,6 +72,12 @@ cat << EOF >> /etc/hosts
 192.168.250.1 dut_usb
 EOF
 
+set -e
+# Enable printer
+lpadmin -p ZebraGX430t -E -v usb://Zebra%20Technologies/ZTC%20GX430t
+cupsaccept ZebraGX430t
+cupsenable ZebraGX430t
+
 
 
 # configuration is done stop this service and disable it we dont need it any more.
