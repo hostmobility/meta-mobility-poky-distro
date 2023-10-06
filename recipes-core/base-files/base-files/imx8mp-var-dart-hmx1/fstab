@@ -7,8 +7,8 @@ tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,stri
 tmpfs                /var/volatile        tmpfs      defaults              0  0
 
 # uncomment this if your device has a SD/MMC/Transflash slot
-/dev/mmcblk1p1       /media/sdcard          auto       defaults,noauto,automount,noatime   0  0
+/dev/mmcblk1p1       /media/sdcard          auto       defaults,auto,nofail  0  0
 
 #Use /mnt/config uncomment if using eMMC or SD card (uncomments in hm autostart service). 
-#eMMC /dev/mmcblk2p2       /mnt/config        auto       defaults,nofail,automount,noatime   0  0
-#SD /dev/mmcblk1p2       /mnt/config        auto       defaults,nofail,automount,noatime   0  0
+#eMMC /dev/mmcblk2p2       /mnt/config        auto       defaults,auto,nofail  0  0
+#SD   /dev/mmcblk1p2       /mnt/config        auto       defaults,auto,nofail  0  0
