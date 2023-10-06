@@ -8,13 +8,14 @@ SRC_URI = "git://git@github.com/hostmobility/host-insight-client.git;protocol=ss
 
 SRC_URI_client[md5sum] = "da0ebecd284d7f4afcfc226be2e648b6"
 SRC_URI_client[sha256sum] = "0019f1ab11aa8364b17727a7b6916a8a07fad25aefe23c45d33d4d4db4f7b6f1"
-SRCREV_client = "c8c41cf0047e6a05bd0eb072b089ca606e25dd9a"
+SRCREV_client = "2ce907c8b4667d09aa419ab8990112b74b8c576a"
 
 SRC_URI_proto[md5sum] = "da0ebecd284d7f4afcfc226be2e648b6"
 SRC_URI_proto[sha256sum] = "0019f1ab11aa8364b17727a7b6916a8a07fad25aefe"
 SRCREV_proto = "598ae5f292fa20d2d51edaf1ebd6e19547ba5b73"
 
 SRCREV = "${SRCREV_client}"
+PV = "0.5.1"
 
 DEPENDS = "protobuf-native protobuf"
 RDEPENDS:${PN} = "curl"
