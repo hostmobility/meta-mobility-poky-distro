@@ -13,3 +13,9 @@ RDEPENDS:${PN} = " \
     host-insight-helper \
 "
 
+RDEPENDS:${PN}:mx4-c61 = " \
+    host-insight-client \
+    host-insight-m \
+    host-insight-helper \
+    gpio-firecrest-driver \
+"
