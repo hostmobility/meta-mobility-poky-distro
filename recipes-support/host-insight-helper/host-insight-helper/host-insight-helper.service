@@ -1,6 +1,7 @@
 [Unit]
 Description=Installs various files in /opt/host-insight-helper
 Before=host-insight-client.service
+After=autostart.service
 
 [Service]
 Type=oneshot
