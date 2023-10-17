@@ -23,7 +23,7 @@ upgrade_client()
 assign_uid_and_fallback_domain()
 {
   # Get the serial number of the device.
-  if [ "$(cat /etc/platform-system-type)" = "c61" ]; then
+  if grep c61 /etc/platform-system-type; then
     if command -v pgrep >/dev/null 2>&1; then
       while pgrep -f "/opt/hm/pic_upgrade.sh" >/dev/null 2>&1; do
         # pic_upgrade is still running
