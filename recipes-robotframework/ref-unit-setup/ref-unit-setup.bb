@@ -8,7 +8,7 @@ PV = "1.0"
 SRC_URI[md5sum] = "009c73c6e18970d201b3168158cff2f3"
 SRC_URI[sha256sum] = "0fa00df5e70e3044b294b41c6f1d1d28254997bbe0c2b9fbfacaf62493f4e769"
 SRC_URI = " \
-	git://git@gitlab.com/hostmobility/test-toolkit.git;protocol=ssh;branch=main;subpath=parallel \
+	gitsm://git@gitlab.com/hostmobility/test-toolkit.git;protocol=ssh;branch=main; \
 	file://ref_eth0.network \
 	file://ref_eth1.network \
 	file://ref_eth2.network \
