@@ -43,7 +43,7 @@ if grep "/$DISK" /proc/cmdline; then
                 mkfs.ext4 /dev/${DISK}p$((PART + 1))
             fi
             mount /dev/${DISK}p$((PART + 1)) /mnt/config/
-            echo "/dev/${DISK}p$((PART + 1))       /mnt/config        auto       defaults,noatime   0  0" > /etc/fstab
+            echo "/dev/${DISK}p$((PART + 1))       /mnt/config        auto       defaults,noatime   0  0" >> /etc/fstab
         fi
     fi
 
