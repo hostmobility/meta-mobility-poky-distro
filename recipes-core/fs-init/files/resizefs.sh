@@ -44,6 +44,7 @@ if grep "/$DISK" /proc/cmdline; then
             fi
             mount /dev/${DISK}p$((PART + 1)) /mnt/config/
             echo "/dev/${DISK}p$((PART + 1))       /mnt/config        auto       defaults,noatime   0  0" >> /etc/fstab
+            run-parts /mnt/config/update-hooks
         fi
     fi
 
