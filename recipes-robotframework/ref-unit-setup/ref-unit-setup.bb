@@ -19,8 +19,6 @@ SRC_URI = " \
 	file://ref_unit.service \
 	file://ref_unit_ssh_config \
 	file://ref_can.network \
-	file://monitor_connections.py \
-	file://monitor_connections.service \
 "
 
 inherit systemd
@@ -61,8 +59,8 @@ do_install() {
 	install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
 
 	# install monitor connections 
-	install -m 0644 ${WORKDIR}/monitor_connections.service ${D}${systemd_unitdir}/system/monitor_connections.service
-	install -m 0755 ${WORKDIR}/monitor_connections.py ${D}/opt/hm/monitor_connections.py
+	install -m 0644 ${WORKDIR}/git/HostMobilityProductionTestGUI/monitor_connections.service ${D}${systemd_unitdir}/system/monitor_connections.service
+	install -m 0755 ${WORKDIR}/git/HostMobilityProductionTestGUI/monitor_connections.py ${D}/opt/hm/monitor_connections.py
 
 	# install databse services
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
