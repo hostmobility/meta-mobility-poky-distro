@@ -41,6 +41,7 @@ do_install() {
 	install -d ${D}/opt/hm/
 	install -d ${D}/opt/hm/HostMobilityProductionTest
 	install -d ${D}/opt/hm/HostMobilityProductionTestGUI
+	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient
 
 	# setup a ref network that is on same network as dut.
 	install -D -m0644 ${WORKDIR}/ref_eth0.network ${D}${systemd_unitdir}/network/81-eth0.network
@@ -63,6 +64,14 @@ do_install() {
 	install -m 0644 ${WORKDIR}/monitor_connections.service ${D}${systemd_unitdir}/system/monitor_connections.service
 	install -m 0755 ${WORKDIR}/monitor_connections.py ${D}/opt/hm/monitor_connections.py
 
+	# install databse services
+	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
+	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client_macaddress.service ${D}${systemd_unitdir}/system/client_macaddress.service
+	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/client.py
+	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client_macaddress.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py
+	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/mobilityproduction_db.json ${D}/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json
+	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/production_tables.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/production_tables.py
+
 	# ssh config to allow none strict host access to DUT.
 	install -m 0644 ${WORKDIR}/ref_unit_ssh_config ${D}${sysconfdir}/ssh/ref_unit_ssh_config
 
@@ -77,6 +86,8 @@ FILES:${PN} = "\
     ${systemd_unitdir}/system/ref_unit_setup.service \
     ${systemd_unitdir}/system/ref_unit.service \
     ${systemd_unitdir}/system/monitor_connections.service \
+    ${systemd_unitdir}/system/client.service \
+    ${systemd_unitdir}/system/client_macaddress.service \
     ${systemd_unitdir}/network/81-eth0.network \
     ${systemd_unitdir}/network/81-eth1.network \
     ${systemd_unitdir}/network/81-eth2.network \
@@ -85,4 +96,8 @@ FILES:${PN} = "\
 	${sysconfdir}/ssh/ref_unit_ssh_config \
 	/opt/hm/HostMobilityProductionTest \
 	/opt/hm/HostMobilityProductionTestGUI \
+	/opt/hm/HostMobilityProductionDatabaseClient/client.py \
+	/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py \
+	/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json \
+	/opt/hm/HostMobilityProductionDatabaseClient/production_tables.py \
 "
