@@ -35,6 +35,10 @@ set -e
 pip3 install robotframework-sshlibrary
 pip3 install pyodbc
 pip3 install robotframework-requests
+pip3 install sqlalchemy
+pip3 install sqlalchemy.orm
+pip3 install prettytable
+pip3 install psycopg2-binary
 
 python3 -m pip install "python-can"
 
