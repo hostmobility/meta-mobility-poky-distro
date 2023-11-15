@@ -29,7 +29,7 @@ DEPENDS = "virtual/kernel"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE:${PN} = "ref_unit.service ref_unit_setup.service monitor_connections.service"
+SYSTEMD_SERVICE:${PN} = "ref_unit.service ref_unit_setup.service monitor_connections.service client_macaddress.service client.service"
 RDEPENDS:${PN} = "bash"
 
 
