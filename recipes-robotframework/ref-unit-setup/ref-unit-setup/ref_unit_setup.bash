@@ -74,6 +74,7 @@ cat << EOF >> /etc/hosts
 192.168.3.201 ref_eth3
 
 192.168.250.1 dut_usb
+192.168.250.2 ref_usb
 EOF
 
 set -e
