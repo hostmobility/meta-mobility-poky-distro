@@ -40,6 +40,7 @@ do_install() {
 	install -d ${D}/opt/hm/HostMobilityProductionTest
 	install -d ${D}/opt/hm/HostMobilityProductionTestGUI
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient
+	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient/client_logs
 
 	# setup a ref network that is on same network as dut.
 	install -D -m0644 ${WORKDIR}/ref_eth0.network ${D}${systemd_unitdir}/network/81-eth0.network
@@ -98,4 +99,5 @@ FILES:${PN} = "\
 	/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json \
 	/opt/hm/HostMobilityProductionDatabaseClient/production_tables.py \
+	/opt/hm/HostMobilityProductionDatabaseClient/client_logs \
 "
