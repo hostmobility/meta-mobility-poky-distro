@@ -17,6 +17,7 @@ IMAGE_INSTALL:append = " \
     iperf3 \
     ref-unit-setup \
     uuu \
+    packagegroup-hostmobility-printer \
 "
 
 export IMAGE_BASENAME = "console-image-robotframework"
