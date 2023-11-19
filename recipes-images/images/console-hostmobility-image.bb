@@ -31,6 +31,7 @@ IMAGE_INSTALL:append = " \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     fs-init \
     packagegroup-core-full-cmdline-utils \
+    ${TASK_BASIC_SSHDAEMON} \
 "
 
 IMAGE_INSTALL:append:mxv-base = " \
