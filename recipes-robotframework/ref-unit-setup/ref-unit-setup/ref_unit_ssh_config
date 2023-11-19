@@ -33,6 +33,7 @@ Host *
 #   AddressFamily any
 #   ConnectTimeout 0
    StrictHostKeyChecking no
+   UserKnownHostsFile /dev/null
 #   IdentityFile ~/.ssh/id_rsa
 #   IdentityFile ~/.ssh/id_dsa
 #   IdentityFile ~/.ssh/id_ecdsa
