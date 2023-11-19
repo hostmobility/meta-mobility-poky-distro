@@ -13,6 +13,7 @@ SRC_URI += "\
 	file://ref_unit.bash \
 	file://ref_unit.service \
 	file://ref_unit_ssh_config \
+	file://ref_can.network \
 "
 
 inherit systemd
@@ -37,6 +38,9 @@ do_install() {
 	install -D -m0644 ${WORKDIR}/ref_eth1.network ${D}${systemd_unitdir}/network/81-eth1.network
 	install -D -m0644 ${WORKDIR}/ref_eth2.network ${D}${systemd_unitdir}/network/81-eth2.network
 	install -D -m0644 ${WORKDIR}/ref_eth3.network ${D}${systemd_unitdir}/network/81-eth3.network
+
+	#Setup all CAN on 500k bitrate.
+	install -D -m0644 ${WORKDIR}/ref_can.network ${D}${systemd_unitdir}/network/80-can.network
 	
 	# install and disable configurations in ref
 	install -m 0644 ${WORKDIR}/ref_unit_setup.service ${D}${systemd_unitdir}/system/ref_unit_setup.service
@@ -60,5 +64,6 @@ FILES:${PN} = "\
     ${systemd_unitdir}/network/81-eth1.network \
     ${systemd_unitdir}/network/81-eth2.network \
     ${systemd_unitdir}/network/81-eth3.network \
+    ${systemd_unitdir}/network/80-can.network \
 	${sysconfdir}/ssh/ref_unit_ssh_config \
 "
