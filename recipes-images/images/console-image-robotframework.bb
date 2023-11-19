@@ -11,11 +11,11 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-net-extended \
     glibc \
     libstdc++ \
-    libatomic1 \
     wget \
     curl \
     tmux \
     iperf3 \
+    ref-unit-setup \
 "
 
 export IMAGE_BASENAME = "console-image-robotframework"

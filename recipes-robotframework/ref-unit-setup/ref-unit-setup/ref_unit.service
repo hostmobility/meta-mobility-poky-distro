@@ -1,0 +1,10 @@
+[Unit]
+Description=Run ref unit test gui startup script for production rigs
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart = /bin/bash /opt/hm/ref_unit.bash
+
+[Install]
+WantedBy=multi-user.target
