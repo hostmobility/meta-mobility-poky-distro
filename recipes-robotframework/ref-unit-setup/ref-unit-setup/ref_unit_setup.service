@@ -1,0 +1,10 @@
+[Unit]
+Description=Run ref unit test setup script for production rigs
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart = /bin/bash /opt/hm/ref_unit_setup.bash
+
+[Install]
+WantedBy=multi-user.target

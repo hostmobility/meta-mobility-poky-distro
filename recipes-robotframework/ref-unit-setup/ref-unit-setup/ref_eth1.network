@@ -1,0 +1,17 @@
+[Match]
+Name=eth1
+Type=ether
+KernelCommandLine=!nfsroot
+
+
+[Network]
+DHCP=yes
+IPForward=yes
+
+[DHCP]
+UseMTU=yes
+RouteMetric=10
+ClientIdentifier=mac
+
+#The timezone received from the DHCP server will be set as timezone of the local system.
+UseTimezone=true

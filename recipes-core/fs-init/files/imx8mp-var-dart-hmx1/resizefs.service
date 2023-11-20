@@ -1,0 +1,9 @@
+[Unit]
+Description=start resize script to increase rootfs to its partition full size
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'sleep 5 ; /usr/sbin/resizefs.sh mmcblk2 1'
+
+[Install]
+WantedBy=multi-user.target
