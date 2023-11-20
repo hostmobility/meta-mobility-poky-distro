@@ -89,6 +89,6 @@ cupsenable ZebraGX430t
 systemctl disable ref_unit_setup.service
 systemctl stop ref_unit_setup.service
 
-echo done, reboot the system!
+echo "Done, reboot the system!"
 
 
