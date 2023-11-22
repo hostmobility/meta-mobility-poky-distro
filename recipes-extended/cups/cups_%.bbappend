@@ -1,3 +1,5 @@
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+
 #Change to root instead of lpadmin. Affect /etc/cups/cups-files.conf (SystemGroup)
 EXTRA_OECONF = " \
                --enable-dbus \
