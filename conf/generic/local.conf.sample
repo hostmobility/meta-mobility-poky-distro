@@ -32,7 +32,8 @@ VIRTUAL-RUNTIME_initscripts = ""
 LICENSE_FLAGS_ACCEPTED = "commercial"
 
 #Use default (DISTRO_FEED_PREFIX += "remote")
-DISTRO_FEED_URI += "http://www.hostmobility.org:8008/${DISTRO_CODENAME}"
+PACKAGECONFIG:append:pn-opkg = " ssl"
+DISTRO_FEED_URI += "https://hostmobility.org/${DISTRO}/${DISTRO_CODENAME}"
 DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
 
 ERROR_QA:remove = "version-going-backwards"
