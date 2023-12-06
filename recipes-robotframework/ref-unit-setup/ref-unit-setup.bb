@@ -2,7 +2,7 @@ SUMMARY = "Tools for Hostmobility Production ref units"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRCREV = "42d2b624f37f6170c14f13024b92af5e3a10c07b"
+SRCREV = "265944b5d428e8da36e851c1e2631a897f6142c4"
 PV = "1.0"
 
 SRC_URI[md5sum] = "009c73c6e18970d201b3168158cff2f3"
