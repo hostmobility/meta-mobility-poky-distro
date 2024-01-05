@@ -9,15 +9,16 @@ SRC_URI = " \
 "
 
 do_install() {
-	install -d ${D}${systemd_unitdir}
-	install -d ${D}${systemd_unitdir}/system
+	install -d ${D}${systemd_unitdir}/network
 
-	# setup a ref network that is on same network as dut.
+	# setup a ref network that is on the same network as dut.
 	install -D -m0644 ${WORKDIR}/ref_mxv_eth0.network ${D}${systemd_unitdir}/network/80-eth0.network
 	install -D -m0644 ${WORKDIR}/ref_mxv_eth0.network ${D}${systemd_unitdir}/network/81-eth0.network
 }
 
-FILES:${PN} = "\
-	${D}${systemd_unitdir}/network/80-eth0.network
-	${D}${systemd_unitdir}/network/81-eth0.network
+FILES:${PN} += "\
+	${systemd_unitdir} \
+	${systemd_unitdir}/network \
+	${systemd_unitdir}/network/80-eth0.network \
+	${systemd_unitdir}/network/81-eth0.network \
 "
