@@ -39,7 +39,7 @@ if grep "/$DISK" /proc/cmdline; then
     #Check size or reboot might be needed to get full resize.
     DISK_SPACE_AVAILABLE=$(df --output=avail "$PWD" | sed '1d;s/[^0-9]//g')
     if (( DISK_SPACE_AVAILABLE <= 1000000 )); then
-        echo "Warning: too little space available: $(df --output=avail -h ),\n rebooting system..." systemd-cat -p emerg
+        echo "Warning: too little space available: $(df --output=avail -h ),\n rebooting system..."  | systemd-cat -p emerg
         reboot
         exit 1
     fi
