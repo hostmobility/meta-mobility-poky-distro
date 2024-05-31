@@ -1,0 +1,6 @@
+Host Mobility targets are:
+    1. console-hostmobility-image *console only*
+    2. host-insight-image *console only with host-insight-client support*
+    3. console-remote-logging *console only with automatic modem management*
+Machine compatible
+    verdin-am62-hmm
