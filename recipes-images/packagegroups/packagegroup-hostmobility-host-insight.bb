@@ -9,7 +9,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS:${PN} = " \
     host-insight-client \
-    host-insight-m \
+    host-modem-m \
     host-insight-helper \
 "
 
