@@ -5,7 +5,7 @@ Description=Host modem manager starts the modem and wvdial
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=/bin/bash /opt/host-modem-m/host-modem-m.sh
+ExecStart=/bin/sh /opt/host-modem-m/host-modem-m.sh
  
 [Install]
 Alias=host-modem-m.service
