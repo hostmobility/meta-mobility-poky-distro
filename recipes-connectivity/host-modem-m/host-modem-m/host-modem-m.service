@@ -1,0 +1,12 @@
+[Unit]
+Description=Host modem manager starts the modem and wvdial
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/bin/sh /opt/host-modem-m/host-modem-m.sh
+ 
+[Install]
+Alias=host-modem-m.service
+WantedBy=multi-user.target
