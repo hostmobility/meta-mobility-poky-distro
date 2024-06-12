@@ -18,6 +18,9 @@ IMAGE_INSTALL:append = " \
     ref-unit-setup \
     uuu \
     packagegroup-hostmobility-printer \
+    rsync \
+    git \
+    zile \
 "
 
 export IMAGE_BASENAME = "console-image-robotframework"
