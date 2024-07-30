@@ -14,6 +14,7 @@ IMAGE_INSTALL:remove = " \
 IMAGE_INSTALL:append = " \
     zile \
     host-modem-m \
+    bbk-cli \
 "
 
 # Allow tty access and other necessary features
