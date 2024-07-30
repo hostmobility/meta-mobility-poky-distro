@@ -13,7 +13,7 @@ S = "${WORKDIR}/git"
 DEPENDS = "gnutls"
 
 do_compile() {
-  oe_runmake GNUTLS=1
+    oe_runmake CC="${CC}" CXX="${CXX}" -C src/cli GNUTLS=1
 }
 
 do_install() {
