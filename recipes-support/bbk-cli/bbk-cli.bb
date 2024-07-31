@@ -9,11 +9,12 @@ SRC_URI = "git://github.com/dotse/bbk.git;branch=master;protocol=https"
 SRCREV = "cfb7bb634e1bf2179ac4a2f1fb0e1e5abb4eebd7"
 
 S = "${WORKDIR}/git"
+EXTRA_OEMAKE = 'CC="${CC}" CXX="${CXX}" CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" GNUTLS=1'
 
 DEPENDS = "gnutls"
 
 do_compile() {
-    oe_runmake CC="${CC}" CXX="${CXX}" -C src/cli GNUTLS=1
+    oe_runmake -C src/cli
 }
 
 do_install() {
