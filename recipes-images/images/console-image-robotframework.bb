@@ -21,6 +21,7 @@ IMAGE_INSTALL:append = " \
     rsync \
     git \
     zile \
+    dfu-util \
 "
 
 export IMAGE_BASENAME = "console-image-robotframework"
