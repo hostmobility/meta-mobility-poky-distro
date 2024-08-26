@@ -52,6 +52,25 @@ IMAGE_INSTALL:append:imx8mp-var-dart = " \
     mx5-platform-version \
 "
 
+IMAGE_INSTALL:append:verdin-am62-hmm = " \
+    dfu-util \
+    tmux \
+    curl \
+    iperf3 \
+    bbk-cli \
+    mx5-platform-version \
+    packagegroup-hostmobility-net-extended \
+    nfs-utils-client \
+    libiio \
+    i2c-tools \
+    python3-can \
+    python3-pip \
+    python3-pyserial \
+    mmc-utils \
+"
+
+
+
 # This variscite bbappend disables systemd-networkd and systemd-resolved.
 # We want to have these so we mask this out.
 BBMASK = "meta-variscite-imx/recipes-core/systemd/systemd_%.bbappend"
