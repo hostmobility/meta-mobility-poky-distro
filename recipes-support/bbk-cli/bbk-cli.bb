@@ -1,7 +1,7 @@
 SUMMARY = "Bredbandskollen CLI"
 DESCRIPTION = "A command-line version of Bredbandskollen CLI: A bandwidth measurement tool."
 HOMEPAGE = "https://github.com/dotse/bbk"
-LICENSE = "GPLv2-or-later"
+LICENSE = "GPL-2.0-or-later"
 
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"
 
