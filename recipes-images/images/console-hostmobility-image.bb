@@ -22,6 +22,7 @@ TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server openssh-mi
 IMAGE_INSTALL:append = " \
     packagegroup-base \
     packagegroup-hostmobility-can \
+    packagegroup-hostmobility-python \
     packagegroup-hostmobility-base \
     packagegroup-hostmobility-net-minimal \
     packagegroup-hostmobility-gps \
