@@ -23,5 +23,6 @@ RDEPENDS:${PN} = " \
     cpufrequtils \
     tzdata \
     usb-rndis-systemd \
+    sudo \
 "
 
