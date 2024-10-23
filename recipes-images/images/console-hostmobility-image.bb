@@ -17,7 +17,7 @@ IMAGE_FEATURES:append = " \
 "
 
 #For packagegroup-basic use this instead of sshdropbear
-TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server"
+TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server openssh-misc"
 
 IMAGE_INSTALL:append = " \
     packagegroup-base \
@@ -63,9 +63,6 @@ IMAGE_INSTALL:append:verdin-am62-hmm = " \
     nfs-utils-client \
     libiio \
     i2c-tools \
-    python3-can \
-    python3-pip \
-    python3-pyserial \
     mmc-utils \
 "
 
