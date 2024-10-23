@@ -17,11 +17,12 @@ IMAGE_FEATURES:append = " \
 "
 
 #For packagegroup-basic use this instead of sshdropbear
-TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server"
+TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server openssh-misc"
 
 IMAGE_INSTALL:append = " \
     packagegroup-base \
     packagegroup-hostmobility-can \
+    packagegroup-hostmobility-python \
     packagegroup-hostmobility-base \
     packagegroup-hostmobility-net-minimal \
     packagegroup-hostmobility-gps \
@@ -51,6 +52,22 @@ IMAGE_INSTALL:append:imx8mp-var-dart = " \
     nfs-utils-client \
     mx5-platform-version \
 "
+
+IMAGE_INSTALL:append:verdin-am62-hmm = " \
+    dfu-util \
+    tmux \
+    curl \
+    iperf3 \
+    bbk-cli \
+    mx5-platform-version \
+    packagegroup-hostmobility-net-extended \
+    nfs-utils-client \
+    libiio \
+    i2c-tools \
+    mmc-utils \
+"
+
+
 
 # This variscite bbappend disables systemd-networkd and systemd-resolved.
 # We want to have these so we mask this out.
