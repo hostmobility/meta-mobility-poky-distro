@@ -2,7 +2,7 @@
 
 # Host modem manager for MX-4 T30 with PLS-8
 
-WVDIAL_CONF=/opt/host-modem-m/onomondo-wvdial.conf
+WVDIAL_CONF=/opt/host-modem-m/wvdial.conf
 
 CTRL_MODEM_ON=/opt/hm/pic_attributes/ctrl_modem_on
 if [ -z "$CTRL_MODEM_ON" ]; then
