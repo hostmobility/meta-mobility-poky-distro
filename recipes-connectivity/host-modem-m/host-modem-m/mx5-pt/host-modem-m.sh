@@ -2,7 +2,7 @@
 
 # Host modem manager for MX-V with EG25-G
 
-WVDIAL_CONF=/opt/host-modem-m/onomondo-wvdial.conf
+WVDIAL_CONF=/opt/host-modem-m/wvdial.conf
 
 MODEM_GPIO=$(gpiofind MODEM_ENABLE_ON)
 if [ -z "$MODEM_GPIO" ]; then

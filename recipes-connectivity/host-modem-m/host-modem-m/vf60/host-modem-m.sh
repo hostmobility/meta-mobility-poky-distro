@@ -2,7 +2,7 @@
 
 # Host modem manager for MX-4 C61 with EG25-G
 
-WVDIAL_CONF=/opt/host-modem-m/onomondo-wvdial.conf
+WVDIAL_CONF=/opt/host-modem-m/wvdial.conf
 
 CTRL_MODEM_ON=/opt/hm/pic_attributes/ctrl_modem_on
 if [ -z "$CTRL_MODEM_ON" ]; then

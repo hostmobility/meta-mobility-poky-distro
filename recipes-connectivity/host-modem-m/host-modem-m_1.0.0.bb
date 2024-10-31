@@ -6,7 +6,7 @@ COMPATIBLE_MACHINE = "(mx5-pt|tegra|vf60)"
 
 SRC_URI = "\
     file://host-modem-m.service \
-    file://onomondo-wvdial.conf \
+    file://wvdial.conf \
     file://host-modem-m.sh \
 "
 inherit systemd
@@ -21,9 +21,9 @@ do_install() {
     
     install -d ${D}/opt/
     install -d ${D}/opt/host-modem-m
-    install -m 644 ${WORKDIR}/onomondo-wvdial.conf ${D}/opt/host-modem-m/onomondo-wvdial.conf
+    install -m 644 ${WORKDIR}/wvdial.conf ${D}/opt/host-modem-m/wvdial.conf
 
     install -m 744 ${WORKDIR}/host-modem-m.sh ${D}/opt/host-modem-m/host-modem-m.sh
 }
 
-FILES:${PN} += "/opt/host-modem-m/host-modem-m.sh /opt/host-modem-m/onomondo-wvdial.conf"
+FILES:${PN} += "/opt/host-modem-m/host-modem-m.sh /opt/host-modem-m/wvdial.conf"
