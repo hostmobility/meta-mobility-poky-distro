@@ -83,7 +83,18 @@ lpadmin -p ZebraGX430t -E -v usb://Zebra%20Technologies/ZTC%20GX430t
 cupsaccept ZebraGX430t
 cupsenable ZebraGX430t
 
+#Install Java runtime from binary package
+wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.5%2B11/OpenJDK21U-jre_aarch64_linux_hotspot_21.0.5_11.tar.gz
+tar -xvf OpenJDK21U-jre_aarch64_linux_hotspot_21.0.5_11.tar.gz -C /opt/
 
+#on Jenkins add env variables for the Node.
+#JAVA_HOME
+#/opt/jdk-21.0.5+11-jre
+#PATH
+#$JAVA_HOME/bin:$PATH
+#or
+#export JAVA_HOME=/opt/jdk-21.0.5+11-jre
+#export PATH=$JAVA_HOME/bin:$PATH
 
 # configuration is done stop this service and disable it we dont need it any more.
 systemctl disable ref_unit_setup.service
