@@ -38,7 +38,6 @@ IMAGE_INSTALL:append = " \
 
 IMAGE_INSTALL:append:mxv-base = " \
     packagegroup-imx-tools-audio \
-    ntpdate \
     dfu-util \
 "
 
