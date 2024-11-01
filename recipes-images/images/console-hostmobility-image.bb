@@ -26,6 +26,7 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-base \
     packagegroup-hostmobility-net-minimal \
     packagegroup-hostmobility-gps \
+    packagegroup-hostmobility-net-extended \
     udev-extra-rules \
     ${ROOTFS_PKGMANAGE_PKGS} \
     minicom \
@@ -44,7 +45,6 @@ IMAGE_INSTALL:append:mxv-base = " \
 
 IMAGE_INSTALL:append:imx8mp-var-dart = " \
     libiio \
-    packagegroup-hostmobility-net-extended \
     curl \
     iperf3 \
     tmux \
@@ -60,7 +60,6 @@ IMAGE_INSTALL:append:verdin-am62-hmm = " \
     iperf3 \
     bbk-cli \
     mx5-platform-version \
-    packagegroup-hostmobility-net-extended \
     nfs-utils-client \
     libiio \
     i2c-tools \
