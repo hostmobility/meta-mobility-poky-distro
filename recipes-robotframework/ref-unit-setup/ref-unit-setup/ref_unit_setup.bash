@@ -96,6 +96,12 @@ tar -xvf OpenJDK21U-jre_aarch64_linux_hotspot_21.0.5_11.tar.gz -C /opt/
 #export JAVA_HOME=/opt/jdk-21.0.5+11-jre
 #export PATH=$JAVA_HOME/bin:$PATH
 
+#install public shh key on this machine.
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKqSuN7KghtZfxvpNzklJ+fz/Z81Jd7tMKHaxEfvDvNJSewWKWmwVfX1JXNHgrLDYsFOwptRuxHwHV2Y+rdmXztHzca6mxNGcgw4AfbQipBHYZMRzCzBQ167inOn3GmuoMvatCvVfRRrRGUdnl+fCaEx2AiJDFX68wMo+Fgyj64482DRlVbBiw0M9IKpoI3nMMz74Y5yYPQM5zYRqaOguld8JY/rtlq0/PmtaUj4IMN/o0l7uheLjSXjuw4DtKYAIA2i0YelAKxIsy2pV+9TM/cAtrqz1lZ+X+Jrha+K84yrIgIuuyWX2CQOx3DwerkkT81Cp6CtnNnLQRR6WxsrUbHUVqAnA+EYguUIrs73d94rf5w02bTf9x3TIVei1QgqCmpnrMf0PZYmG3PnvAYh0gxKm0HpKmwkSTx3LtzPMwgoiGhaTshvITmsHCWbEcTUshXyRWs2M1FnL0iJJPGjzY3Jj6nCDGaZiEsSYPYKVZELem2lXeS4/FFPYKvmXNZ3U= root@verdin-am62-hmm" > .ssh/authorized_keys
+chmod 700 /home/jenkinsuser/.ssh
+chmod 600 /home/jenkinsuser/.ssh/authorized_keys
+chown -R jenkinsuser:jenkinsuser /home/jenkinsuser/.ssh
+
 # configuration is done stop this service and disable it we dont need it any more.
 systemctl disable ref_unit_setup.service
 systemctl stop ref_unit_setup.service
