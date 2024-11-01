@@ -27,42 +27,35 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-net-minimal \
     packagegroup-hostmobility-gps \
     packagegroup-hostmobility-net-extended \
+    packagegroup-hostmobility-test-tools \
     udev-extra-rules \
     ${ROOTFS_PKGMANAGE_PKGS} \
-    minicom \
     ${CORE_IMAGE_EXTRA_INSTALL} \
-    fs-init \
     packagegroup-core-full-cmdline-utils \
     ${TASK_BASIC_SSHDAEMON} \
 "
 
+# Include Mxv needed tools, that are audio packages. dfu-utils for reflash CAN controller fw.
 IMAGE_INSTALL:append:mxv-base = " \
     packagegroup-imx-tools-audio \
     dfu-util \
 "
 
-
+# HMX needed tools. unclear if libiio is needed. ethtool is needed to setup T1 ethernet configuration.
+# TODO move and rename mx5-platform-version (package from hm-commercial) to be a machine feature in bsp layer
 IMAGE_INSTALL:append:imx8mp-var-dart = " \
     libiio \
-    curl \
-    iperf3 \
-    tmux \
     ethtool \
-    nfs-utils-client \
     mx5-platform-version \
 "
 
+# HMM needed tools. unclear if libiio is needed. i2c-tool could be remove later on released product.
+# TODO move and rename mx5-platform-version (package from hm-commercial) to be a machine feature in bsp layer
 IMAGE_INSTALL:append:verdin-am62-hmm = " \
     dfu-util \
-    tmux \
-    curl \
-    iperf3 \
-    bbk-cli \
     mx5-platform-version \
-    nfs-utils-client \
     libiio \
     i2c-tools \
-    mmc-utils \
 "
 
 

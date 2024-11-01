@@ -12,17 +12,15 @@ RDEPENDS:${PN} = " \
     minicom \
     lrzsz \
     lmsensors-sensors \
-    hdparm \
     opkg \
     opkg-utils \
     distro-feed-configs \
-    fbtest \
     openssl-engines \
     htop \
-    make \
     cpufrequtils \
     tzdata \
     usb-rndis-systemd \
     sudo \
+    fs-init \
 "
 
