@@ -2,8 +2,6 @@ DESCRIPTION = "Host modem manager for wvdial"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-COMPATIBLE_MACHINE = "(mx5-pt|tegra|vf60)"
-
 SRC_URI = "\
     file://host-modem-m.service \
     file://wvdial.conf \
