@@ -1,0 +1,10 @@
+# Host mobility hmm version with mnt/config
+
+/dev/root            /                    auto       defaults,noatime              1  1
+proc                 /proc                proc       defaults              0  0
+devpts               /dev/pts             devpts     mode=0620,ptmxmode=0666,gid=5      0  0
+tmpfs                /run                 tmpfs      mode=0755,nodev,nosuid,strictatime 0  0
+tmpfs                /var/volatile        tmpfs      defaults              0  0
+
+# uncomment this if your device has a SD/MMC/Transflash slot
+/dev/mmcblk1p1       /media/sdcard        auto       defaults,auto,nofail  0  0
