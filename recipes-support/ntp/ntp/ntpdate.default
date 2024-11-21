@@ -1,6 +1,6 @@
 # Configuration script used by ntpdate-sync script
 
-NTPSERVERS="pool.ntp.org $(grep -Eos '^[^#]*' /etc/ntp.servers | tr "\\n" " ")"
+NTPSERVERS="time.cloudflare.com time.nist.gov"
 
 # Set to "yes" to write time to hardware clock on success
 UPDATE_HWCLOCK="yes"
