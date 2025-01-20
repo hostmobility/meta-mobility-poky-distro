@@ -1,0 +1,13 @@
+[Unit]
+Description=Load/Configure the kernel driver providing the RNDIS gadget
+DefaultDependencies=no
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash /usr/bin/hm-usb.sh up 31000000.usb
+ExecStop=/bin/bash /usr/bin/hm-usb.sh down 31000000.usb
+
+[Install]
+WantedBy=multi-user.target
