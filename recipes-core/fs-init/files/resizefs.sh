@@ -48,6 +48,6 @@ if grep "/$DISK" /proc/cmdline; then
 
     logger "resizing ${DISK}p$PART finished, new size is $(df --output=avail -h )"
 else
-    echo "$(cat/proc/cmdline) is not target eMMC(${DISK}p$PART). Skip resize eMMC and exit 1"
+    echo "$(cat /proc/cmdline) is not target eMMC(${DISK}p$PART). Skip resize eMMC and exit 1"
     exit 1
 fi
