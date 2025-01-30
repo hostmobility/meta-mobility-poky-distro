@@ -24,6 +24,7 @@ ACCEPT_FSL_EULA = "1"
 
 INHERIT += "rm_work"
 
+DISTRO_FEATURES:append = " usrmerge"
 DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
 DISTRO_FEATURES:append = " kvm"
