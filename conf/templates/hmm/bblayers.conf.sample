@@ -16,7 +16,6 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-openembedded/meta-filesystems \
   \
   ${BSPDIR}/sources/meta-qt5 \
-  ${BSPDIR}/sources/meta-python2 \
   ${BSPDIR}/sources/meta-swupdate \
   ${BSPDIR}/sources/meta-virtualization \
   \
