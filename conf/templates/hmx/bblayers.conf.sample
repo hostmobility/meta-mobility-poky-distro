@@ -21,7 +21,6 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-freescale-ml \
   \
   ${BSPDIR}/sources/meta-qt5 \
-  ${BSPDIR}/sources/meta-python2 \
   ${BSPDIR}/sources/meta-swupdate \
   ${BSPDIR}/sources/meta-virtualization \
   ${BSPDIR}/sources/meta-variscite-bsp \
