@@ -7,6 +7,5 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS:${PN} = " \
     ppp \
-    ntpdate \
 "
 
