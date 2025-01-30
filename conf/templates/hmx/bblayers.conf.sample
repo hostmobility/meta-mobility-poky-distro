@@ -21,14 +21,24 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-freescale-ml \
   \
   ${BSPDIR}/sources/meta-qt5 \
-  ${BSPDIR}/sources/meta-python2 \
   ${BSPDIR}/sources/meta-swupdate \
   ${BSPDIR}/sources/meta-virtualization \
-  ${BSPDIR}/sources/meta-variscite-bsp \
+  \
   ${BSPDIR}/sources/meta-variscite-hab \
   \
   \
   ${BSPDIR}/sources/meta-hostmobility-bsp \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
 "
+# Below is scartghap new name or new layer included. Some of these layers could be removed and not needed if we only use the variscite kernel.
 
+BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-sdk' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-sdk') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-bsp' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-bsp') else ' '}"
+
+BBLAYERS += "${@'${BSPDIR}/sources/meta-variscite-bsp-imx' if os.path.exists('${BSPDIR}/sources/meta-variscite-bsp-imx') else '${BSPDIR}/sources/meta-variscite-bsp'}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-variscite-bsp-common' if os.path.exists('${BSPDIR}/sources/meta-variscite-bsp-common') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-variscite-sdk-imx' if os.path.exists('${BSPDIR}/sources/meta-variscite-sdk-imx') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-variscite-sdk-common' if os.path.exists('${BSPDIR}/sources/meta-variscite-sdk-common') else ' '}"
+
+BBLAYERS += "${@'${BSPDIR}/sources/meta-arm/meta-arm' if os.path.exists('${BSPDIR}/sources/meta-arm/meta-arm') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-arm/meta-arm-toolchain' if os.path.exists('${BSPDIR}/sources/meta-arm/meta-arm-toolchain') else ' '}"
