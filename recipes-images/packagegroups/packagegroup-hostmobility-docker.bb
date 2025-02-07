@@ -7,5 +7,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS:${PN} = " \
     docker \
+    docker-compose \
     "
 
