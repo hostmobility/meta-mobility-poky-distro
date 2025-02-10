@@ -12,7 +12,6 @@ DISTRO_UPDATE_ALTERNATIVES ??= ""
 ROOTFS_PKGMANAGE_PKGS ?= '${@oe.utils.conditional("ONLINE_PACKAGE_MANAGEMENT", "none", "", "${ROOTFS_PKGMANAGE} ${DISTRO_UPDATE_ALTERNATIVES}", d)}'
 
 IMAGE_FEATURES:append = " \
-    debug-tweaks \
     ssh-server-openssh \
 "
 
