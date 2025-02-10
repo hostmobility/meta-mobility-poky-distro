@@ -32,7 +32,6 @@ VIRTUAL-RUNTIME_init_manager = "systemd"
 LICENSE_FLAGS_ACCEPTED = "commercial"
 
 #Use default (DISTRO_FEED_PREFIX += "remote")
-PACKAGECONFIG:append:pn-opkg = " ssl"
 DISTRO_FEED_URI += "https://hostmobility.org/${DISTRO}/${DISTRO_CODENAME}"
 DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
 
