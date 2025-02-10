@@ -1,6 +1,6 @@
 MACHINE ??= 'verdin-am62-hmm'
 TARGET_ARCH ?= "arm"
-DISTRO ?= 'poky'
+DISTRO ?= 'hm-generic-console'
 
 PACKAGE_CLASSES ?= 'package_ipk'
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
@@ -23,8 +23,6 @@ CONF_VERSION = "2"
 
 INHERIT += "rm_work"
 
-DISTRO_FEATURES:append = " usrmerge"
-DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
 DISTRO_FEATURES:append = " kvm"
 VIRTUAL-RUNTIME_init_manager = "systemd"
