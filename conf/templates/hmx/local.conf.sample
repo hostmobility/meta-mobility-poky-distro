@@ -29,8 +29,6 @@ DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
 DISTRO_FEATURES:append = " kvm"
 VIRTUAL-RUNTIME_init_manager = "systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
-VIRTUAL-RUNTIME_initscripts = ""
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
 
