@@ -23,11 +23,20 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-qt5 \
   ${BSPDIR}/sources/meta-swupdate \
   ${BSPDIR}/sources/meta-virtualization \
-  ${BSPDIR}/sources/meta-variscite-bsp \
+  \
+  ${BSPDIR}/sources/meta-arm/meta-arm \
+  ${BSPDIR}/sources/meta-arm/meta-arm-toolchain  \
+  \
+  ${BSPDIR}/sources/meta-variscite-bsp-imx \
+  ${BSPDIR}/sources/meta-variscite-sdk-imx \
+  ${BSPDIR}/sources/meta-variscite-bsp-common \
+  ${BSPDIR}/sources/meta-variscite-sdk-common \
   ${BSPDIR}/sources/meta-variscite-hab \
+  \
+  ${BSPDIR}/sources/meta-imx/meta-imx-bsp \
+  ${BSPDIR}/sources/meta-imx/meta-imx-sdk \
   \
   \
   ${BSPDIR}/sources/meta-hostmobility-bsp \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
 "
-
