@@ -46,14 +46,12 @@ IMAGE_INSTALL:append:mxv-base = " \
 IMAGE_INSTALL:append:imx8mp-var-dart = " \
     libiio \
     ethtool \
-    mx5-platform-version \
 "
 
 # HMM needed tools. unclear if libiio is needed. i2c-tool could be remove later on released product.
 # TODO move and rename mx5-platform-version (package from hm-commercial) to be a machine feature in bsp layer
 IMAGE_INSTALL:append:verdin-am62-hmm = " \
     dfu-util \
-    mx5-platform-version \
     libiio \
     i2c-tools \
 "
