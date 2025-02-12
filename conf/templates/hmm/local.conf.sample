@@ -26,7 +26,7 @@ INHERIT += "rm_work"
 DISTRO_FEATURES:append = " usrmerge"
 DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
-DISTRO_FEATURES:append = " kvm"
+#DISTRO_FEATURES:append = " kvm"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
