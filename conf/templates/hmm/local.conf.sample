@@ -24,7 +24,7 @@ CONF_VERSION = "2"
 INHERIT += "rm_work"
 
 DISTRO_FEATURES:append = " virtualization"
-DISTRO_FEATURES:append = " kvm"
+#DISTRO_FEATURES:append = " kvm"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
