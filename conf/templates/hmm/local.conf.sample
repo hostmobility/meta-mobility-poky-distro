@@ -38,3 +38,5 @@ DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
 ERROR_QA:remove = "version-going-backwards"
 
 DL_DIR ?= "${BSPDIR}/downloads/"
+
+PREFERRED_VERSION_libgpiod = "1.6%"
