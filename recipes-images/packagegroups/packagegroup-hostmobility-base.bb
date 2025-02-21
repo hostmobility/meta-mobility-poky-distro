@@ -11,7 +11,7 @@ RDEPENDS:${PN} = " \
     libgpiod-tools \
     minicom \
     lrzsz \
-    lmsensors-sensors \
+    lmsensors \
     opkg \
     opkg-utils \
     distro-feed-configs \
