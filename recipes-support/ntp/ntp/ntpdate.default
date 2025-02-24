@@ -1,7 +1,0 @@
-# Configuration script used by ntpdate-sync script
-
-NTPSERVERS="time.cloudflare.com time.nist.gov"
-
-# Set to "yes" to write time to hardware clock on success
-UPDATE_HWCLOCK="yes"
-

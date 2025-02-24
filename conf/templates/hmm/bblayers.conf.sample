@@ -15,18 +15,15 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-openembedded/meta-gnome \
   ${BSPDIR}/sources/meta-openembedded/meta-filesystems \
   \
-  ${BSPDIR}/sources/meta-freescale \
-  ${BSPDIR}/sources/meta-freescale-3rdparty \
-  ${BSPDIR}/sources/meta-freescale-distro \
-  ${BSPDIR}/sources/meta-freescale-ml \
-  \
   ${BSPDIR}/sources/meta-qt5 \
-  ${BSPDIR}/sources/meta-python2 \
   ${BSPDIR}/sources/meta-swupdate \
   ${BSPDIR}/sources/meta-virtualization \
-  ${BSPDIR}/sources/meta-variscite-bsp \
-  ${BSPDIR}/sources/meta-variscite-hab \
   \
+  ${BSPDIR}/sources/meta-toradex-bsp-common\
+  ${BSPDIR}/sources/meta-toradex-ti \
+  ${BSPDIR}/sources/meta-arm/meta-arm \
+  ${BSPDIR}/sources/meta-arm/meta-arm-toolchain  \
+  ${BSPDIR}/sources/meta-ti/meta-ti-bsp \
   \
   ${BSPDIR}/sources/meta-hostmobility-bsp \
   ${BSPDIR}/sources/meta-mobility-poky-distro \

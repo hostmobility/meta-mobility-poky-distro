@@ -1,4 +1,5 @@
-SUMMARY = "Image booting to a console"
+SUMMARY = "A MINIMAL console-only image that fully supports the target device hardware."
+inherit core-image
 
 LICENSE = "MIT"
 
@@ -8,9 +9,6 @@ IMAGE_PREPROCESS_COMMAND = "rootfs_update_timestamp ;"
 
 IMAGE_LINGUAS = "en-us"
 
-DISTRO_UPDATE_ALTERNATIVES ??= ""
-ROOTFS_PKGMANAGE_PKGS ?= '${@oe.utils.conditional("ONLINE_PACKAGE_MANAGEMENT", "none", "", "${ROOTFS_PKGMANAGE} ${DISTRO_UPDATE_ALTERNATIVES}", d)}'
-
 IMAGE_FEATURES:append = " \
     ssh-server-openssh \
 "
@@ -19,7 +17,8 @@ IMAGE_FEATURES:append = " \
 TASK_BASIC_SSHDAEMON = "openssh-sshd openssh-sftp openssh-sftp-server openssh-misc"
 
 IMAGE_INSTALL:append = " \
-    packagegroup-base \
+    packagegroup-core-boot \
+    ${CORE_IMAGE_EXTRA_INSTALL} \
     packagegroup-hostmobility-can \
     packagegroup-hostmobility-python \
     packagegroup-hostmobility-base \
@@ -27,10 +26,6 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-gps \
     packagegroup-hostmobility-net-extended \
     packagegroup-hostmobility-test-tools \
-    udev-extra-rules \
-    ${ROOTFS_PKGMANAGE_PKGS} \
-    ${CORE_IMAGE_EXTRA_INSTALL} \
-    packagegroup-core-full-cmdline-utils \
     ${TASK_BASIC_SSHDAEMON} \
 "
 
@@ -55,18 +50,16 @@ IMAGE_INSTALL:append:verdin-am62-hmm = " \
 "
 
 
+IMAGE_ROOTFS_SIZE ?= "8192"
+IMAGE_ROOTFS_EXTRA_SPACE:append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "", d)}"
 
-# This variscite bbappend disables systemd-networkd and systemd-resolved.
-# We want to have these so we mask this out.
-BBMASK = "meta-variscite-imx/recipes-core/systemd/systemd_%.bbappend"
 
 IMAGE_DEV_MANAGER   = "udev"
 IMAGE_INIT_MANAGER  = "systemd"
 IMAGE_INITSCRIPTS   = " "
 IMAGE_LOGIN_MANAGER = "busybox shadow"
 
-export IMAGE_BASENAME = "console-hostmobility-image"
+export IMAGE_BASENAME = "console-mobility-image"
 
-inherit core-image
 
 TOOLCHAIN_TARGET_TASK:append = " kernel-devsrc"

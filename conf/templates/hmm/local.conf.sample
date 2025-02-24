@@ -1,9 +1,9 @@
 MACHINE ??= 'verdin-am62-hmm'
 TARGET_ARCH ?= "arm"
-DISTRO ?= 'poky'
+DISTRO ?= 'hm-generic-console'
 
 PACKAGE_CLASSES ?= 'package_ipk'
-EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
+EXTRA_IMAGE_FEATURES ?= "package-management"
 USER_CLASSES = "buildstats"
 PATCHRESOLVE = "noop"
 BB_DISKMON_DIRS ??= "\
@@ -23,17 +23,13 @@ CONF_VERSION = "2"
 
 INHERIT += "rm_work"
 
-DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
-DISTRO_FEATURES:append = " kvm"
+#DISTRO_FEATURES:append = " kvm"
 VIRTUAL-RUNTIME_init_manager = "systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
-VIRTUAL-RUNTIME_initscripts = ""
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
 
 #Use default (DISTRO_FEED_PREFIX += "remote")
-PACKAGECONFIG:append:pn-opkg = " ssl"
 DISTRO_FEED_URI += "https://hostmobility.org/${DISTRO}/${DISTRO_CODENAME}"
 DISTRO_FEED_ARCHS += "all ${PACKAGE_EXTRA_ARCHS} ${MACHINE_ARCH}"
 
