@@ -19,7 +19,7 @@ RDEPENDS:${PN} = " \
     htop \
     cpufrequtils \
     tzdata \
-    usb-rndis-systemd \
+    usb-rndis-udev \
     sudo \
     fs-init \
 "

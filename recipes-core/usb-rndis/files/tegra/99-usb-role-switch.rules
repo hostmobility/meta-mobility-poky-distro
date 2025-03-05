@@ -1,0 +1,2 @@
+ACTION=="change", SUBSYSTEM=="extcon", ENV{STATE}=="USB=0", RUN+="/usr/bin/hm-usb.sh down ci_hdrc.0"
+ACTION=="change", SUBSYSTEM=="extcon", ENV{STATE}=="USB=1", RUN+="/usr/bin/hm-usb.sh up ci_hdrc.0"

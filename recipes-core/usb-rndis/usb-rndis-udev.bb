@@ -8,26 +8,16 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 PR = "r1"
 
-inherit allarch systemd
-
 SRC_URI = " \
     file://hm-usb.sh \
-    file://usb-rndis.service \
+    file://99-usb-role-switch.rules \
 "
 
 do_install() {
     install -d ${D}/${bindir}
     install -m 0755 ${WORKDIR}/hm-usb.sh ${D}/${bindir}/hm-usb.sh
 
-    install -d ${D}${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/usb-rndis.service ${D}${systemd_unitdir}/system
+	install -d ${D}${sysconfdir}/udev/rules.d
+	install -m 0644 ${WORKDIR}/99-usb-role-switch.rules ${D}${sysconfdir}/udev/rules.d/
 }
-
-FILES:${PN} += " \
-    ${systemd_unitdir}/system \
-"
-
-NATIVE_SYSTEMD_SUPPORT = "1"
-SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE:${PN} = "usb-rndis.service"
 
