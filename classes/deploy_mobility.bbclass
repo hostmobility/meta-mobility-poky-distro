@@ -15,7 +15,7 @@
 # - Custom deployment directories can be modified by setting
 #   `DEPLOY_DIR_EXTRA_IMAGE` in `local.conf`
 
-DEPLOY_DIR_EXTRA_IMAGE = "${TOPDIR}/deploy-mobility/images"
+DEPLOY_DIR_EXTRA_IMAGE ?= "${TOPDIR}/deploy-mobility/images"
 
 do_deploy_mobility() {
     mkdir -p ${DEPLOY_DIR_EXTRA_IMAGE}
