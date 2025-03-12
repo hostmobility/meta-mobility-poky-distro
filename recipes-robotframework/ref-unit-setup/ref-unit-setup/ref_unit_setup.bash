@@ -39,6 +39,8 @@ pip3 install sqlalchemy
 pip3 install sqlalchemy.orm
 pip3 install prettytable
 pip3 install psycopg2-binary
+pip3 install dotenv
+pip3 install websockets
 
 python3 -m pip install "python-can"
 
