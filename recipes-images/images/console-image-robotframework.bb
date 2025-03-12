@@ -22,6 +22,9 @@ IMAGE_INSTALL:append = " \
     git \
     zile \
     dfu-util \
+    lighttpd \
+    python3-websockets \
+    python3-dotenv \
 "
 
 
