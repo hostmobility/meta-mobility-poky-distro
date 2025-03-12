@@ -21,4 +21,3 @@ RDEPENDS:${PN} = " \
     python3-intelhex \
 "
 #    not buildable python3-robotframework-requests use pip3 install robotframework-requests and  python3-robotframework-sshlibrary and python3-robotframework-dialogs. Use ref_unit_setup.bash instead.
-
