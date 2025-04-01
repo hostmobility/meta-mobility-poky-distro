@@ -41,4 +41,4 @@ export IMAGE_BASENAME = "console-image-robotframework"
 
 # Change distro feed to special robotframework image for production
 DISTRO_FEED_URI += "https://hostmobility.org/robotframework-ref/${DISTRO_CODENAME}"
-DISTRO_FEED_URI_remove = "https://hostmobility.org/${DISTRO}/${DISTRO_CODENAME}"
+DISTRO_FEED_URI:remove = "https://hostmobility.org/${DISTRO}/${DISTRO_CODENAME}"
