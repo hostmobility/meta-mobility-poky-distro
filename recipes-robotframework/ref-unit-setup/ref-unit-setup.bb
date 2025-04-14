@@ -27,7 +27,7 @@ DEPENDS = "virtual/kernel"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE:${PN} = "ref_unit.service ref_unit_setup.service monitor_connections.service client_macaddress.service client.service"
+SYSTEMD_SERVICE:${PN} = "ref_unit.service ref_unit_setup.service client_macaddress.service client.service"
 RDEPENDS:${PN} = "bash"
 
 
@@ -38,7 +38,6 @@ do_install() {
 	install -d ${D}${sysconfdir}/ssh
 	install -d ${D}/opt/hm/
 	install -d ${D}/opt/hm/HostMobilityProductionTest
-	install -d ${D}/opt/hm/HostMobilityProductionTestGUI
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient/client_logs
 
@@ -59,10 +58,6 @@ do_install() {
 	install -m 0644 ${WORKDIR}/ref_unit.service ${D}${systemd_unitdir}/system/ref_unit.service
 	install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
 
-	# install monitor connections 
-	install -m 0644 ${WORKDIR}/git/HostMobilityProductionTestGUI/monitor_connections.service ${D}${systemd_unitdir}/system/monitor_connections.service
-	install -m 0755 ${WORKDIR}/git/HostMobilityProductionTestGUI/monitor_connections.py ${D}/opt/hm/monitor_connections.py
-
 	# install databse services
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client_macaddress.service ${D}${systemd_unitdir}/system/client_macaddress.service
@@ -75,16 +70,13 @@ do_install() {
 	install -m 0644 ${WORKDIR}/ref_unit_ssh_config ${D}${sysconfdir}/ssh/ref_unit_ssh_config
 
 	cp -r ${WORKDIR}/git/HostMobilityProductionTest ${D}/opt/hm/
-	cp -r ${WORKDIR}/git/HostMobilityProductionTestGUI ${D}/opt/hm/
 }
 
 FILES:${PN} = "\
     /opt/hm/ref_unit_setup.bash \
     /opt/hm/ref_unit.bash \
-    /opt/hm/monitor_connections.py \
     ${systemd_unitdir}/system/ref_unit_setup.service \
     ${systemd_unitdir}/system/ref_unit.service \
-    ${systemd_unitdir}/system/monitor_connections.service \
     ${systemd_unitdir}/system/client.service \
     ${systemd_unitdir}/system/client_macaddress.service \
     ${systemd_unitdir}/network/81-eth0.network \
@@ -94,7 +86,6 @@ FILES:${PN} = "\
     ${systemd_unitdir}/network/80-can.network \
 	${sysconfdir}/ssh/ref_unit_ssh_config \
 	/opt/hm/HostMobilityProductionTest \
-	/opt/hm/HostMobilityProductionTestGUI \
 	/opt/hm/HostMobilityProductionDatabaseClient/client.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json \
