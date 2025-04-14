@@ -5,6 +5,8 @@ PV = "0.1.1"
 GITLAB_PROJECT_ID = "67535839"
 GITLAB_BUILD_JOB_ID = "9623409203"
 
+RDEPENDS:${PN} += "lighttpd"
+
 python () {
     import os
     access_token = os.getenv("GITLAB_ACCESS_TOKEN", "")
@@ -14,12 +16,10 @@ python () {
 }
 
 SRC_URI = " \
-    https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/jobs/${GITLAB_BUILD_JOB_ID}/artifacts/starve_frontend-${PV}.tar.gz;name=starve_frontend;downloadfilename=starve_frontend-${PV}.tar.gz
+    https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/jobs/${GITLAB_BUILD_JOB_ID}/artifacts/starve_frontend-${PV}.tar.gz;name=starve_frontend;downloadfilename=starve_frontend-${PV}.tar.gz \
 "
 SRC_URI[starve_frontend.md5sum] = "593271EF74B6B1D3C32CAAE568877CDA"
 SRC_URI[starve_frontend.sha256sum] = "35A1AE194CFC4A7A9A45ABE562C5B38DB2DC924C54243D448EB94AC68C765009"
-
-S = "${WORKDIR}"
 
 do_fetch() {
     TOKEN="${GITLAB_ACCESS_TOKEN}"
@@ -30,6 +30,25 @@ do_fetch() {
         bb.fatal "Failed to download artifact from $URL"
 }
 
+S = "${WORKDIR}/subdirectory"
+
+do_unpack() {
+    mkdir -p ${S}
+    tar -xf ${DL_DIR}/starve_frontend-${PV}.tar.gz -C ${S}/
+}
+
 do_install() {
     install -d ${D}/www/pages
+    cp -R --no-preserve=ownership ${S}/* ${D}/www/pages
+    if [ -f ${D}/www/pages/index.html ]; then
+        mv ${D}/www/pages/index.html ${D}/www/pages/starve-frontend.html
+    fi
+}
+
+FILES:${PN} += "/www/pages/*"
+
+pkg_postinst:${PN}() {
+    # Forcefully override the index.html from lighttpd with starve-frontend
+    cp -f $D/www/pages/starve-frontend.html $D/www/pages/index.html
+    rm -f $D/www/pages/starve-frontend.html
 }

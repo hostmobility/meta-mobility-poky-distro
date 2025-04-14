@@ -22,7 +22,7 @@ IMAGE_INSTALL:append = " \
     git \
     zile \
     dfu-util \
-    lighttpd \
+    starve-frontend \
 "
 
 
