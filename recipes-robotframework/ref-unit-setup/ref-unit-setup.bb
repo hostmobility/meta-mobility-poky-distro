@@ -19,6 +19,8 @@ SRC_URI = " \
 	file://ref_unit.service \
 	file://ref_unit_ssh_config \
 	file://ref_can.network \
+	file://starve_backend_env \
+	file://starve_rf_relay.service \
 "
 
 inherit systemd
@@ -27,7 +29,7 @@ DEPENDS = "virtual/kernel"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE:${PN} = "ref_unit.service ref_unit_setup.service client_macaddress.service client.service"
+SYSTEMD_SERVICE:${PN} = "ref_unit.service rf_relay.service ref_unit_setup.service client_macaddress.service client.service"
 RDEPENDS:${PN} = "bash"
 
 
@@ -72,14 +74,18 @@ do_install() {
 	install -m 0755 ${WORKDIR}/git/starve/backend/main.py ${D}/opt/hm/starve/backend/main.py
 	install -m 0755 ${WORKDIR}/git/starve/backend/tester.py ${D}/opt/hm/starve/backend/tester.py
 	install -m 0755 ${WORKDIR}/git/starve/backend/ws.py ${D}/opt/hm/starve/backend/ws.py
-	cp -r ${WORKDIR}/git/starve/backend/messages ${D}/opt/hm/starve/backend/
-
+	install -m 0644 ${WORKDIR}/starve_backend_env ${D}/opt/hm/starve/backend/.env
+	cp -r --no-preserve=ownership ${WORKDIR}/git/starve/backend/messages ${D}/opt/hm/starve/backend/
+	
+	# install starve robotframework relay
+	install -m 0644 ${WORKDIR}/starve_rf_relay.service ${D}${systemd_unitdir}/system/rf_relay.service
 	install -m 0755 ${WORKDIR}/git/starve/robotframework_relay/main.py ${D}/opt/hm/starve/robotframework_relay/main.py
 
 	# ssh config to allow none strict host access to DUT.
 	install -m 0644 ${WORKDIR}/ref_unit_ssh_config ${D}${sysconfdir}/ssh/ref_unit_ssh_config
 
-	cp -r ${WORKDIR}/git/HostMobilityProductionTest ${D}/opt/hm/
+	cp -r --no-preserve=ownership ${WORKDIR}/git/HostMobilityProductionTest ${D}/opt/hm/
+	cp -r --no-preserve=ownership ${WORKDIR}/git/test-tools ${D}/opt/hm/
 }
 
 FILES:${PN} = "\
@@ -89,6 +95,7 @@ FILES:${PN} = "\
     ${systemd_unitdir}/system/ref_unit.service \
     ${systemd_unitdir}/system/client.service \
     ${systemd_unitdir}/system/client_macaddress.service \
+	${systemd_unitdir}/system/rf_relay.service \
     ${systemd_unitdir}/network/81-eth0.network \
     ${systemd_unitdir}/network/81-eth1.network \
     ${systemd_unitdir}/network/81-eth2.network \
@@ -96,6 +103,7 @@ FILES:${PN} = "\
     ${systemd_unitdir}/network/80-can.network \
 	${sysconfdir}/ssh/ref_unit_ssh_config \
 	/opt/hm/HostMobilityProductionTest \
+	/opt/hm/test-tools \
 	/opt/hm/starve \
 	/opt/hm/HostMobilityProductionDatabaseClient/client.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py \
