@@ -1,11 +1,11 @@
 [Unit]
-Description=Run ref unit test gui startup script for production rigs
+Description=Run ref unit starve backend startup script for production rigs
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
 ExecStartPre = /bin/bash ref_unit.bash
-ExecStart=/usr/bin/python3 HostMobilityProductionTestGUI/gui.py
+ExecStart=/usr/bin/python3 starve/backend/main.py
 WorkingDirectory=/opt/hm
 
 [Install]

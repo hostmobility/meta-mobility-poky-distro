@@ -19,6 +19,8 @@ SRC_URI = " \
 	file://ref_unit.service \
 	file://ref_unit_ssh_config \
 	file://ref_can.network \
+	file://starve_backend_env \
+	file://starve_rf_relay.service \
 "
 
 inherit systemd
@@ -27,7 +29,7 @@ DEPENDS = "virtual/kernel"
 
 SYSTEMD_PACKAGES = "${PN}"
 
-SYSTEMD_SERVICE:${PN} = "ref_unit.service ref_unit_setup.service monitor_connections.service client_macaddress.service client.service"
+SYSTEMD_SERVICE:${PN} = "ref_unit.service rf_relay.service ref_unit_setup.service client_macaddress.service client.service"
 RDEPENDS:${PN} = "bash"
 
 
@@ -38,10 +40,12 @@ do_install() {
 	install -d ${D}${sysconfdir}/ssh
 	install -d ${D}/opt/hm/
 	install -d ${D}/opt/hm/HostMobilityProductionTest
-	install -d ${D}/opt/hm/HostMobilityProductionTestGUI
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient/client_logs
-
+	install -d ${D}/opt/hm/starve/
+	install -d ${D}/opt/hm/starve/backend
+	install -d ${D}/opt/hm/starve/robotframework_relay
+	
 	# setup a ref network that is on same network as dut.
 	install -D -m0644 ${WORKDIR}/ref_eth0.network ${D}${systemd_unitdir}/network/81-eth0.network
 	install -D -m0644 ${WORKDIR}/ref_eth1.network ${D}${systemd_unitdir}/network/81-eth1.network
@@ -54,16 +58,8 @@ do_install() {
 	# install and disable configurations in ref
 	install -m 0644 ${WORKDIR}/ref_unit_setup.service ${D}${systemd_unitdir}/system/ref_unit_setup.service
 	install -m 0755 ${WORKDIR}/ref_unit_setup.bash ${D}/opt/hm/ref_unit_setup.bash
-	
-	# Run test GUI from startup
-	install -m 0644 ${WORKDIR}/ref_unit.service ${D}${systemd_unitdir}/system/ref_unit.service
-	install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
 
-	# install monitor connections 
-	install -m 0644 ${WORKDIR}/git/HostMobilityProductionTestGUI/monitor_connections.service ${D}${systemd_unitdir}/system/monitor_connections.service
-	install -m 0755 ${WORKDIR}/git/HostMobilityProductionTestGUI/monitor_connections.py ${D}/opt/hm/monitor_connections.py
-
-	# install databse services
+	# install database services
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client_macaddress.service ${D}${systemd_unitdir}/system/client_macaddress.service
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/client.py
@@ -71,22 +67,35 @@ do_install() {
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/mobilityproduction_db.json ${D}/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/production_tables.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/production_tables.py
 
+	# install starve backend
+	install -m 0644 ${WORKDIR}/ref_unit.service ${D}${systemd_unitdir}/system/ref_unit.service
+	install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
+	install -m 0755 ${WORKDIR}/git/starve/backend/connections.py ${D}/opt/hm/starve/backend/connections.py
+	install -m 0755 ${WORKDIR}/git/starve/backend/main.py ${D}/opt/hm/starve/backend/main.py
+	install -m 0755 ${WORKDIR}/git/starve/backend/tester.py ${D}/opt/hm/starve/backend/tester.py
+	install -m 0755 ${WORKDIR}/git/starve/backend/ws.py ${D}/opt/hm/starve/backend/ws.py
+	install -m 0644 ${WORKDIR}/starve_backend_env ${D}/opt/hm/starve/backend/.env
+	cp -r --no-preserve=ownership ${WORKDIR}/git/starve/backend/messages ${D}/opt/hm/starve/backend/
+	
+	# install starve robotframework relay
+	install -m 0644 ${WORKDIR}/starve_rf_relay.service ${D}${systemd_unitdir}/system/rf_relay.service
+	install -m 0755 ${WORKDIR}/git/starve/robotframework_relay/main.py ${D}/opt/hm/starve/robotframework_relay/main.py
+
 	# ssh config to allow none strict host access to DUT.
 	install -m 0644 ${WORKDIR}/ref_unit_ssh_config ${D}${sysconfdir}/ssh/ref_unit_ssh_config
 
-	cp -r ${WORKDIR}/git/HostMobilityProductionTest ${D}/opt/hm/
-	cp -r ${WORKDIR}/git/HostMobilityProductionTestGUI ${D}/opt/hm/
+	cp -r --no-preserve=ownership ${WORKDIR}/git/HostMobilityProductionTest ${D}/opt/hm/
+	cp -r --no-preserve=ownership ${WORKDIR}/git/test-tools ${D}/opt/hm/
 }
 
 FILES:${PN} = "\
     /opt/hm/ref_unit_setup.bash \
     /opt/hm/ref_unit.bash \
-    /opt/hm/monitor_connections.py \
     ${systemd_unitdir}/system/ref_unit_setup.service \
     ${systemd_unitdir}/system/ref_unit.service \
-    ${systemd_unitdir}/system/monitor_connections.service \
     ${systemd_unitdir}/system/client.service \
     ${systemd_unitdir}/system/client_macaddress.service \
+	${systemd_unitdir}/system/rf_relay.service \
     ${systemd_unitdir}/network/81-eth0.network \
     ${systemd_unitdir}/network/81-eth1.network \
     ${systemd_unitdir}/network/81-eth2.network \
@@ -94,7 +103,8 @@ FILES:${PN} = "\
     ${systemd_unitdir}/network/80-can.network \
 	${sysconfdir}/ssh/ref_unit_ssh_config \
 	/opt/hm/HostMobilityProductionTest \
-	/opt/hm/HostMobilityProductionTestGUI \
+	/opt/hm/test-tools \
+	/opt/hm/starve \
 	/opt/hm/HostMobilityProductionDatabaseClient/client.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json \

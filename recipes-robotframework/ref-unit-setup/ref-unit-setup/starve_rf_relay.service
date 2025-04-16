@@ -1,0 +1,11 @@
+[Unit]
+Description=Run starve robotframework relay service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 starve/robotframework_relay/main.py 
+WorkingDirectory=/opt/hm
+
+[Install]
+WantedBy=multi-user.target
