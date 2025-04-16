@@ -40,7 +40,10 @@ do_install() {
 	install -d ${D}/opt/hm/HostMobilityProductionTest
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient
 	install -d ${D}/opt/hm/HostMobilityProductionDatabaseClient/client_logs
-
+	install -d ${D}/opt/hm/starve/
+	install -d ${D}/opt/hm/starve/backend
+	install -d ${D}/opt/hm/starve/robotframework_relay
+	
 	# setup a ref network that is on same network as dut.
 	install -D -m0644 ${WORKDIR}/ref_eth0.network ${D}${systemd_unitdir}/network/81-eth0.network
 	install -D -m0644 ${WORKDIR}/ref_eth1.network ${D}${systemd_unitdir}/network/81-eth1.network
@@ -53,18 +56,25 @@ do_install() {
 	# install and disable configurations in ref
 	install -m 0644 ${WORKDIR}/ref_unit_setup.service ${D}${systemd_unitdir}/system/ref_unit_setup.service
 	install -m 0755 ${WORKDIR}/ref_unit_setup.bash ${D}/opt/hm/ref_unit_setup.bash
-	
-	# Run test GUI from startup
-	install -m 0644 ${WORKDIR}/ref_unit.service ${D}${systemd_unitdir}/system/ref_unit.service
-	install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
 
-	# install databse services
+	# install database services
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
 	install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client_macaddress.service ${D}${systemd_unitdir}/system/client_macaddress.service
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/client.py
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client_macaddress.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/mobilityproduction_db.json ${D}/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json
 	install -m 0755 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/production_tables.py ${D}/opt/hm/HostMobilityProductionDatabaseClient/production_tables.py
+
+	# install starve backend
+	install -m 0644 ${WORKDIR}/ref_unit.service ${D}${systemd_unitdir}/system/ref_unit.service
+	install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
+	install -m 0755 ${WORKDIR}/git/starve/backend/connections.py ${D}/opt/hm/starve/backend/connections.py
+	install -m 0755 ${WORKDIR}/git/starve/backend/main.py ${D}/opt/hm/starve/backend/main.py
+	install -m 0755 ${WORKDIR}/git/starve/backend/tester.py ${D}/opt/hm/starve/backend/tester.py
+	install -m 0755 ${WORKDIR}/git/starve/backend/ws.py ${D}/opt/hm/starve/backend/ws.py
+	cp -r ${WORKDIR}/git/starve/backend/messages ${D}/opt/hm/starve/backend/
+
+	install -m 0755 ${WORKDIR}/git/starve/robotframework_relay/main.py ${D}/opt/hm/starve/robotframework_relay/main.py
 
 	# ssh config to allow none strict host access to DUT.
 	install -m 0644 ${WORKDIR}/ref_unit_ssh_config ${D}${sysconfdir}/ssh/ref_unit_ssh_config
@@ -86,6 +96,7 @@ FILES:${PN} = "\
     ${systemd_unitdir}/network/80-can.network \
 	${sysconfdir}/ssh/ref_unit_ssh_config \
 	/opt/hm/HostMobilityProductionTest \
+	/opt/hm/starve \
 	/opt/hm/HostMobilityProductionDatabaseClient/client.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/client_macaddress.py \
 	/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json \
