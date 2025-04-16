@@ -1,0 +1,2 @@
+ROBOTFRAMEWORK_RELAY_SERVER_URL=http://127.0.0.1:5000
+DB_CONFIG_FILEPATH=/opt/hm/HostMobilityProductionDatabaseClient/mobilityproduction_db.json
