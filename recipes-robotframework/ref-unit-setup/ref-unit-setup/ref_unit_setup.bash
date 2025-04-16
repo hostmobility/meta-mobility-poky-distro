@@ -78,10 +78,15 @@ cat << EOF >> /etc/hosts
 EOF
 
 set -e
-# Enable printer
+# Install and enable Zebra GX430t
 lpadmin -p ZebraGX430t -E -v usb://Zebra%20Technologies/ZTC%20GX430t
 cupsaccept ZebraGX430t
 cupsenable ZebraGX430t
+
+# Install and enable Zebra ZD621t printer
+lpadmin -p ZebraZD621t -E -v usb://Zebra%20Technologies/ZTC%20ZD621t
+cupsaccept ZebraZD621t
+cupsenable ZebraZD621t
 
 #Install Java runtime from binary package
 wget https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.5%2B11/OpenJDK21U-jre_aarch64_linux_hotspot_21.0.5_11.tar.gz
