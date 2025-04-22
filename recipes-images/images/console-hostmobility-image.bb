@@ -28,7 +28,6 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-gps \
     packagegroup-hostmobility-net-extended \
     packagegroup-hostmobility-test-tools \
-    packagegroup-hostmobility-development \
     udev-extra-rules \
     ${ROOTFS_PKGMANAGE_PKGS} \
     ${CORE_IMAGE_EXTRA_INSTALL} \
@@ -55,6 +54,7 @@ IMAGE_INSTALL:append:verdin-am62-hmm = " \
     dfu-util \
     libiio \
     i2c-tools \
+    systemd-analyze \
 "
 
 
