@@ -15,6 +15,7 @@ IMAGE_INSTALL:append = " \
     curl \
     tmux \
     iperf3 \
+    ref-unit-network \
     ref-unit-setup \
     uuu \
     packagegroup-hostmobility-printer \
@@ -22,6 +23,7 @@ IMAGE_INSTALL:append = " \
     git \
     zile \
     dfu-util \
+    starve-backend \
     starve-frontend \
 "
 
