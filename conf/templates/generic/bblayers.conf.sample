@@ -19,7 +19,7 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-freescale-distro \
   \
   ${BSPDIR}/sources/meta-browser/meta-chromium \
-  ${BSPDIR}/sources/meta-rust/meta-rust \
+  ${BSPDIR}/sources/meta-rust \
   ${BSPDIR}/sources/meta-clang \
   \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
