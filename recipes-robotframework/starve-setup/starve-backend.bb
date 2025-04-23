@@ -1,7 +1,7 @@
 DESCRIPTION="Starve backend setup for Hostmobility Production ref units"
 LICENSE="CLOSED"
 
-require recipes-robotframework/common/revision.inc
+require recipes-robotframework/common/test-toolkit.inc
 
 SRC_URI += " \
     file://starve_backend_env \
