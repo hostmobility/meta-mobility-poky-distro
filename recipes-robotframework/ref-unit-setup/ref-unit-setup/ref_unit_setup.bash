@@ -84,7 +84,7 @@ cupsaccept ZebraGX430t
 cupsenable ZebraGX430t
 
 # Install and enable Zebra ZD621t printer
-lpadmin -p ZebraZD621t -E -v usb://Zebra%20Technologies/ZTC%20ZD621t
+lpadmin -p ZebraZD621t -E -v 'usb://Zebra%20Technologies/ZTC%20ZD621-300dpi%20ZPL'
 cupsaccept ZebraZD621t
 cupsenable ZebraZD621t
 
