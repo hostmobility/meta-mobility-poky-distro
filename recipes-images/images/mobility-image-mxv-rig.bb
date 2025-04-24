@@ -31,7 +31,7 @@ IMAGE_INSTALL:append = " \
     packagegroup-fsl-gstreamer1.0-full \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', "${X11TOOLS}", "", d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', \
-                         'weston weston-init chromium-ozone-wayland', '', d)} \
+                         'weston weston-init chromium-ozone-wayland nodejs', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', \
                          'weston-xwayland xterm', '', d)} \
     packagegroup-hostmobility-robotframework \
