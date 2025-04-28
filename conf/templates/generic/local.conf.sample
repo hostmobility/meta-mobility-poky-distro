@@ -28,8 +28,10 @@ DISTRO_FEATURES:append = " usrmerge"
 DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
 #DISTRO_FEATURES:append = " kvm"
+#DISTRO_FEATURES:append = " opengl kms"
+#DISTRO_FEATURES:remove = " vulkan"
+
 VIRTUAL-RUNTIME_init_manager = "systemd"
-DISTRO_FEATURES:remove = " optee"
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
 
