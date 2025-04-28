@@ -22,6 +22,7 @@ do_install() {
     # install and disable configurations in ref
     install -m 0644 ${WORKDIR}/ref_unit_setup.service ${D}${systemd_unitdir}/system/ref_unit_setup.service
     install -m 0755 ${WORKDIR}/ref_unit_setup.bash ${D}/opt/hm/ref_unit_setup.bash
+    install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
 
     # install database services
     install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
@@ -37,6 +38,7 @@ do_install() {
 
 FILES:${PN} = "\
     /opt/hm/ref_unit_setup.bash \
+    /opt/hm/ref_unit.bash \
     ${systemd_unitdir}/system/ref_unit_setup.service \
     ${systemd_unitdir}/system/client.service \
     ${systemd_unitdir}/system/client_macaddress.service \
