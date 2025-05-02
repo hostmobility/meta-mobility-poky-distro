@@ -9,11 +9,12 @@ SRC_URI += " \
     file://ref_unit_setup.bash \
     file://ref_unit_setup.service \
     file://ref_unit.bash \
+    file://ref_opkg_update.bash \
+    file://ref_opkg_update.service \
 "
-
 RDEPENDS:${PN} += "ref-unit-network"
 
-SYSTEMD_SERVICE:${PN} = "ref_unit_setup.service client_macaddress.service client.service"
+SYSTEMD_SERVICE:${PN} = "ref_unit_setup.service client_macaddress.service client.service ref_opkg_update.service"
 
 
 do_install() {
@@ -23,6 +24,10 @@ do_install() {
     install -m 0644 ${WORKDIR}/ref_unit_setup.service ${D}${systemd_unitdir}/system/ref_unit_setup.service
     install -m 0755 ${WORKDIR}/ref_unit_setup.bash ${D}/opt/hm/ref_unit_setup.bash
     install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
+
+    # opkg update and upgrade during start
+    install -m 0644 ${WORKDIR}/ref_opkg_update.service ${D}${systemd_unitdir}/system/ref_opkg_update.service
+	install -m 0755 ${WORKDIR}/ref_opkg_update.bash ${D}/opt/hm/ref_opkg_update.bash
 
     # install database services
     install -m 0644 ${WORKDIR}/git/HostMobilityProductionDatabaseClient/client.service ${D}${systemd_unitdir}/system/client.service
@@ -39,7 +44,9 @@ do_install() {
 FILES:${PN} = "\
     /opt/hm/ref_unit_setup.bash \
     /opt/hm/ref_unit.bash \
+    /opt/hm/ref_opkg_update.bash \
     ${systemd_unitdir}/system/ref_unit_setup.service \
+    ${systemd_unitdir}/system/ref_opkg_update.service \
     ${systemd_unitdir}/system/client.service \
     ${systemd_unitdir}/system/client_macaddress.service \
     /opt/hm/HostMobilityProductionTest \
