@@ -39,6 +39,8 @@ pip3 install sqlalchemy
 pip3 install sqlalchemy.orm
 pip3 install prettytable
 pip3 install psycopg2-binary
+pip3 install dotenv
+pip3 install websockets
 
 python3 -m pip install "python-can"
 
@@ -110,8 +112,6 @@ chown -R jenkinsuser:jenkinsuser /home/jenkinsuser/.ssh
 
 # configuration is done stop this service and disable it we dont need it any more.
 systemctl disable ref_unit_setup.service
-systemctl stop ref_unit_setup.service
 
 echo "Done, reboot the system!"
-
-
+reboot
