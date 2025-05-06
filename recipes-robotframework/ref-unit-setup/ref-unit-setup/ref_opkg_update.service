@@ -1,0 +1,12 @@
+[Unit]
+Description=Update new packages form hostmobility.org
+After=ref_unit_setup.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart = /bin/bash ref_opkg_update.bash
+WorkingDirectory=/opt/hm
+
+[Install]
+WantedBy=multi-user.target
