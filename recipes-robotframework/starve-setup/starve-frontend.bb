@@ -1,9 +1,9 @@
 DESCRIPTION = "Systematic Testing And Robustness Validation Engine"
 LICENSE = "CLOSED"
 
-PV = "0.1.1"
+PV = "1.1.2"
 GITLAB_PROJECT_ID = "67535839"
-GITLAB_BUILD_JOB_ID = "9623409203"
+GITLAB_BUILD_JOB_ID = "9943586319"
 
 RDEPENDS:${PN} += "lighttpd"
 
@@ -18,8 +18,8 @@ python () {
 SRC_URI = " \
     https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/jobs/${GITLAB_BUILD_JOB_ID}/artifacts/starve_frontend-${PV}.tar.gz;name=starve_frontend;downloadfilename=starve_frontend-${PV}.tar.gz \
 "
-SRC_URI[starve_frontend.md5sum] = "593271EF74B6B1D3C32CAAE568877CDA"
-SRC_URI[starve_frontend.sha256sum] = "35A1AE194CFC4A7A9A45ABE562C5B38DB2DC924C54243D448EB94AC68C765009"
+SRC_URI[starve_frontend.md5sum] = "bab69461e832cbdb2f557db575161b85"
+SRC_URI[starve_frontend.sha256sum] = "2f10f5e528ffe2a7a187a30678f6c29fee0ad35d56a001c963fb04c94f868ffc"
 
 do_fetch() {
     TOKEN="${GITLAB_ACCESS_TOKEN}"
