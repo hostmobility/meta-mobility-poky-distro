@@ -1,6 +1,6 @@
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "gitsm://git@gitlab.com/hostmobility/test-toolkit.git;protocol=ssh;branch=maintester_robot;"
+SRC_URI = "gitsm://git@gitlab.com/hostmobility/test-toolkit.git;protocol=ssh;branch=master;"
 
 inherit systemd
 
