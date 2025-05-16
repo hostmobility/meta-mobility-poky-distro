@@ -21,12 +21,12 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-printer \
     rsync \
     git \
+    dnsmasq \
     zile \
     dfu-util \
     starve-backend \
     starve-frontend \
 "
-
 
 inherit extrausers
 
