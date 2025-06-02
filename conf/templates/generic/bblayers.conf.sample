@@ -18,7 +18,6 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-freescale \
   ${BSPDIR}/sources/meta-freescale-distro \
   \
-  ${BSPDIR}/sources/meta-browser/meta-chromium \
   ${BSPDIR}/sources/meta-clang \
   \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
@@ -26,8 +25,4 @@ BBLAYERS = " \
   \
   ${BSPDIR}/sources/meta-virtualization \
 "
-
-# i.MX Yocto Project Release layers
-BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-bsp' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-bsp') else '${BSPDIR}/sources/meta-imx/meta-bsp'}"
-BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-sdk' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-sdk') else '${BSPDIR}/sources/meta-imx/meta-sdk'}"
 

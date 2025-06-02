@@ -1,12 +1,3 @@
-Host Mobility targets are:
-    1. console-hostmobility-image *console only*
-    2. mobility-image *Graphics based console window and audio*
-    3. mobility-image-desktop *Weston Wayland desktop*
-    4. mobility-image-chromium *Weston Wayland desktop with chromium web browser*
-    5. mobility-image-development *Development with graphics*
-    6. host-insight-image 'console only with host-insight-client support'
-    7. console-remote-logging *console only with automatic modem management*
-Machine compatible
-    mx5-pt *include graphic*
-    mx4-c61
+Target is:
+   MXV Stripped production rig
 

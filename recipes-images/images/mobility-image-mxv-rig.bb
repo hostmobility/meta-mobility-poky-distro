@@ -2,7 +2,7 @@ DESCRIPTION = "A special internal image that includes chromium-ozone-wayland and
 
 LICENSE = "MIT"
 
-require mobility-image.bb
+require console-hostmobility-image.bb
 
 IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-robotframework \
