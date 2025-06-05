@@ -1,5 +1,5 @@
 SUMMARY = "Test tool package group"
-DESCRIPTION = "Package group bringing in packages, that is used to validate the platform"
+DESCRIPTION = "Packages useful for platform testing and validation"
 
 inherit packagegroup
 
