@@ -16,5 +16,6 @@ RDEPENDS:${PN} = " \
     bbk-cli \
     mmc-utils \
     systemd-analyze \
+    stress-ng \
 "
 
