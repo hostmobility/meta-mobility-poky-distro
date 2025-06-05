@@ -15,5 +15,6 @@ RDEPENDS:${PN} = " \
     nfs-utils-client \
     bbk-cli \
     mmc-utils \
+    systemd-analyze \
 "
 
