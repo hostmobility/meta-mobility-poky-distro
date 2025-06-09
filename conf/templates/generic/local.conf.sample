@@ -1,7 +1,7 @@
 MACHINE ??= 'mx5-pt'
 TARGET_ARCH ?= "arm"
 DISTRO ?= 'fslc-wayland'
-IMX_DEFAULT_BSP = "mainline"
+IMX_DEFAULT_BSP = "nxp"
 PACKAGE_CLASSES ?= 'package_ipk'
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
 USER_CLASSES = "buildstats"
@@ -28,6 +28,9 @@ DISTRO_FEATURES:append = " usrmerge"
 DISTRO_FEATURES:append = " systemd"
 DISTRO_FEATURES:append = " virtualization"
 #DISTRO_FEATURES:append = " kvm"
+#DISTRO_FEATURES:append = " opengl kms"
+#DISTRO_FEATURES:remove = " vulkan"
+
 VIRTUAL-RUNTIME_init_manager = "systemd"
 
 LICENSE_FLAGS_ACCEPTED = "commercial"
