@@ -11,6 +11,7 @@ SRC_URI += " \
     file://ref_unit.bash \
     file://ref_opkg_update.bash \
     file://ref_opkg_update.service \
+    file://set_psu.bash \
 "
 RDEPENDS:${PN} += "ref-unit-network"
 
@@ -24,6 +25,7 @@ do_install() {
     install -m 0644 ${WORKDIR}/ref_unit_setup.service ${D}${systemd_unitdir}/system/ref_unit_setup.service
     install -m 0755 ${WORKDIR}/ref_unit_setup.bash ${D}/opt/hm/ref_unit_setup.bash
     install -m 0755 ${WORKDIR}/ref_unit.bash ${D}/opt/hm/ref_unit.bash
+    install -m 0755 ${WORKDIR}/set_psu.bash ${D}/opt/hm/set_psu.bash
 
     # opkg update and upgrade during start
     install -m 0644 ${WORKDIR}/ref_opkg_update.service ${D}${systemd_unitdir}/system/ref_opkg_update.service
@@ -45,6 +47,7 @@ FILES:${PN} = "\
     /opt/hm/ref_unit_setup.bash \
     /opt/hm/ref_unit.bash \
     /opt/hm/ref_opkg_update.bash \
+    /opt/hm/set_psu.bash \
     ${systemd_unitdir}/system/ref_unit_setup.service \
     ${systemd_unitdir}/system/ref_opkg_update.service \
     ${systemd_unitdir}/system/client.service \
