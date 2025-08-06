@@ -11,7 +11,7 @@ python () {
     import os
     access_token = os.getenv("GITLAB_ACCESS_TOKEN", "")
     if not access_token:
-        bb.fatal("GITLAB_ACCESS_TOKEN is not set in the environment. Fetching from GitLab will fail.")
+        raise bb.parse.SkipRecipe("GITLAB_ACCESS_TOKEN not available in the environment")
     d.setVar("GITLAB_ACCESS_TOKEN", access_token)
 }
 
