@@ -15,12 +15,6 @@ python () {
     d.setVar("GITLAB_ACCESS_TOKEN", access_token)
 }
 
-SRC_URI = " \
-    https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/jobs/${GITLAB_BUILD_JOB_ID}/artifacts/starve_frontend-${PV}.tar.gz;name=starve_frontend;downloadfilename=starve_frontend-${PV}.tar.gz \
-"
-SRC_URI[starve_frontend.md5sum] = "e3cfcedf9e1df6a9adcc90b397250b5c"
-SRC_URI[starve_frontend.sha256sum] = "4850bf7a2d72bcf8dc069e60afc487dcb51808232d6a4852f65158793154990b"
-
 do_fetch() {
     TOKEN="${GITLAB_ACCESS_TOKEN}"
     URL="https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/jobs/${GITLAB_BUILD_JOB_ID}/artifacts/starve_frontend-${PV}.tar.gz"
