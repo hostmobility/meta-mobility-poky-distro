@@ -20,6 +20,7 @@ BBLAYERS = " \
   \
   ${BSPDIR}/sources/meta-browser/meta-chromium \
   ${BSPDIR}/sources/meta-clang \
+  ${BSPDIR}/sources/meta-rust \
   \
   ${BSPDIR}/sources/meta-mobility-poky-distro \
   ${BSPDIR}/sources/meta-hostmobility-bsp \
