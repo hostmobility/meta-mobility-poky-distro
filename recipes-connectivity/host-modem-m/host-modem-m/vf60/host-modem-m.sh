@@ -2,8 +2,6 @@
 
 # Host modem manager for MX-4 C61 with EG25-G
 
-WVDIAL_CONF=/opt/host-modem-m/wvdial.conf
-
 CTRL_MODEM_ON=/opt/hm/pic_attributes/ctrl_modem_on
 if [ -z "$CTRL_MODEM_ON" ]; then
   logger "Failed to find $CTRL_MODEM_ON"
@@ -57,7 +55,7 @@ modem_stop()
 modem_start
 RET=$?
 if [ $RET = 0 ]; then
-  wvdial -C $WVDIAL_CONF
+  wvdial
   exit $?
 else
   modem_stop

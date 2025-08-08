@@ -10,18 +10,25 @@ SRC_URI = "\
 inherit systemd
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE:${PN} = "host-modem-m.service"
-RDEPENDS:${PN} = "wvdial"
+SYSTEMD_SERVICE:${PN} = "${PN}.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+
+RDEPENDS:${PN} = "wvdial ppp"
 
 do_install() {
-    install -d ${D}${systemd_unitdir}/system
-    install -m 644 ${WORKDIR}/host-modem-m.service ${D}${systemd_unitdir}/system/${PN}.service
+    install -d ${D}${systemd_system_unitdir}
+    install -m 644 ${WORKDIR}/host-modem-m.service \
+        ${D}${systemd_system_unitdir}/${PN}.service
     
-    install -d ${D}/opt/
     install -d ${D}/opt/host-modem-m
-    install -m 644 ${WORKDIR}/wvdial.conf ${D}/opt/host-modem-m/wvdial.conf
-
     install -m 744 ${WORKDIR}/host-modem-m.sh ${D}/opt/host-modem-m/host-modem-m.sh
+
+    install -d ${D}${sysconfdir}
+    install -m 644 ${WORKDIR}/wvdial.conf ${D}/${sysconfdir}/wvdial.conf
 }
 
-FILES:${PN} += "/opt/host-modem-m/host-modem-m.sh /opt/host-modem-m/wvdial.conf"
+FILES:${PN} += " \
+	/opt/host-modem-m/host-modem-m.sh \
+	${systemd_system_unitdir}/${PN}.service \
+	${sysconfdir}/wvdial.conf \
+"

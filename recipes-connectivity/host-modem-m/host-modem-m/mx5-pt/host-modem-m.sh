@@ -2,8 +2,6 @@
 
 # Host modem manager for MX-V with EG25-G
 
-WVDIAL_CONF=/opt/host-modem-m/wvdial.conf
-
 MODEM_GPIO=$(gpiofind MODEM_ENABLE_ON)
 if [ -z "$MODEM_GPIO" ]; then
   logger "Failed to find GPIO for MODEM_ENABLE_ON"
@@ -51,7 +49,7 @@ modem_stop()
 modem_start
 RET=$?
 if [ $RET = 0 ]; then
-  wvdial -C $WVDIAL_CONF
+  wvdial
   exit $?
 else
   modem_stop
