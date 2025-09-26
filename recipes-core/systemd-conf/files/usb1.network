@@ -5,8 +5,7 @@ KernelCommandLine=!nfsroot
 KernelCommandLine=!ip
 
 [Network]
-Address=192.168.250.1
-
+Address=192.168.250.1/24
 DHCPServer=true
 
 [DHCPServer]
