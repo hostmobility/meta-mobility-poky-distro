@@ -1,9 +1,9 @@
 DESCRIPTION = "Systematic Testing And Robustness Validation Engine"
 LICENSE = "CLOSED"
 
-PV = "1.1.4"
+PV = "1.1.5"
 GITLAB_PROJECT_ID = "67535839"
-GITLAB_BUILD_JOB_ID = "10149985750"
+GITLAB_BUILD_JOB_ID = "11510362383"
 
 RDEPENDS:${PN} += "lighttpd"
 
