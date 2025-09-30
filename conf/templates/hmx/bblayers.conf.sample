@@ -18,7 +18,6 @@ BBLAYERS = " \
   ${BSPDIR}/sources/meta-freescale \
   ${BSPDIR}/sources/meta-freescale-3rdparty \
   ${BSPDIR}/sources/meta-freescale-distro \
-  ${BSPDIR}/sources/meta-freescale-ml \
   \
   ${BSPDIR}/sources/meta-qt5 \
   ${BSPDIR}/sources/meta-swupdate \
@@ -34,6 +33,9 @@ BBLAYERS = " \
 
 BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-sdk' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-sdk') else ' '}"
 BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-bsp' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-bsp') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-ml' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-ml') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-cockpit' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-cockpit') else ' '}"
+BBLAYERS += "${@'${BSPDIR}/sources/meta-imx/meta-imx-v2x' if os.path.exists('${BSPDIR}/sources/meta-imx/meta-imx-v2x') else ' '}"
 
 BBLAYERS += "${@'${BSPDIR}/sources/meta-variscite-bsp-imx' if os.path.exists('${BSPDIR}/sources/meta-variscite-bsp-imx') else '${BSPDIR}/sources/meta-variscite-bsp'}"
 BBLAYERS += "${@'${BSPDIR}/sources/meta-variscite-bsp-common' if os.path.exists('${BSPDIR}/sources/meta-variscite-bsp-common') else ' '}"
