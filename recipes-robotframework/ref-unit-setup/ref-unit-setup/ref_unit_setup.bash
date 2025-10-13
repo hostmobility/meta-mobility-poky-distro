@@ -41,6 +41,7 @@ pip3 install prettytable
 pip3 install psycopg2-binary
 pip3 install dotenv
 pip3 install websockets
+pip3 install pyusb
 
 python3 -m pip install "python-can"
 
