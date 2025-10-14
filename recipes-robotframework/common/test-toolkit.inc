@@ -1,5 +1,5 @@
 
-SRCREV = "e9d03951bfb6ca1f1c0393e481f159e8107c8c25"
+SRCREV = "a5328c5fc8cfbd473298a08da97550d96dba9828"
 SRC_URI = "gitsm://git@gitlab.com/hostmobility/test-toolkit.git;protocol=ssh;branch=main;"
 
 inherit systemd
