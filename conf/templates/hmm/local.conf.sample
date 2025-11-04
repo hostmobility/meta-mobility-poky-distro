@@ -40,3 +40,10 @@ ERROR_QA:remove = "version-going-backwards"
 DL_DIR ?= "${BSPDIR}/downloads/"
 
 PREFERRED_VERSION_libgpiod = "1.6.%"
+
+# Prefer systemd-conf over mxv-ref-unit-setup
+PREFERRED_RPROVIDER_systemd-conf = "systemd-conf"
+
+# Prefer standard linux-firmware over firmware-nxp-wifi
+PREFERRED_RPROVIDER_linux-firmware-nxp8997-common = "linux-firmware"
+PREFERRED_RPROVIDER_linux-firmware-nxp9098-common = "linux-firmware"
