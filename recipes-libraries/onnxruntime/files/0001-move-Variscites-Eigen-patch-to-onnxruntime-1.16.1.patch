@@ -1,0 +1,43 @@
+
+From 3a0c5834322de5f776f7013ec2e9c64d3cdba320 Mon Sep 17 00:00:00 2001
+From: Host Mobility Support <support@hostmobility.com>
+Date: Wed, 29 Oct 2025 14:48:14 +0000
+Subject: [PATCH] eigen: move Variscites Eigen patch to onnxruntime 1.16.1
+
+This patch applies changes from Variscites patch:
+0001-eigen-replace-Eigen-zip-download-with-Git-clone-to-a.patch  
+But for onnxruntime 1.16.1
+
+Signed-off-by: Andreas Ternstedt <a.ternstedt@setek.se>
+
+---
+ cmake/deps.txt             | 1 -
+ cmake/external/eigen.cmake | 4 ++--
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/cmake/deps.txt b/cmake/deps.txt
+index 631c9cf2f..01251a4bb 100644
+--- a/cmake/deps.txt
++++ b/cmake/deps.txt
+@@ -42,4 +42,3 @@ safeint;https://github.com/dcleblanc/SafeInt/archive/ff15c6ada150a5018c5ef217240
+ tensorboard;https://github.com/tensorflow/tensorboard/archive/373eb09e4c5d2b3cc2493f0949dc4be6b6a45e81.zip;67b833913605a4f3f499894ab11528a702c2b381
+ cutlass;https://github.com/NVIDIA/cutlass/archive/refs/tags/v3.0.0.zip;0f95b3c1fc1bd1175c4a90b2c9e39074d1bccefd
+ extensions;https://github.com/microsoft/onnxruntime-extensions/archive/94142d8391c9791ec71c38336436319a2d4ac7a0.zip;4365ac5140338b4cb75a39944a4be276e3829b3c
+-eigen;https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.zip;ef24286b7ece8737c99fa831b02941843546c081
+diff --git a/cmake/external/eigen.cmake b/cmake/external/eigen.cmake
+index c0f7ddc50..58c74ab17 100644
+--- a/cmake/external/eigen.cmake
++++ b/cmake/external/eigen.cmake
+@@ -14,8 +14,8 @@ else ()
+     else()
+         FetchContent_Declare(
+             eigen
+-            URL ${DEP_URL_eigen}
+-            URL_HASH SHA1=${DEP_SHA1_eigen}
++            GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
++            GIT_TAG        e7248b26a1ed53fa030c5c459f7ea095dfd276ac
+         )
+     endif()
+     FetchContent_Populate(eigen)
+-- 
+2.34.1

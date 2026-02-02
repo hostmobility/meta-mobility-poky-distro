@@ -25,11 +25,14 @@ BBLAYERS = " \
   \
   ${BSPDIR}/sources/meta-imx/meta-imx-bsp \
   ${BSPDIR}/sources/meta-nxp-connectivity/meta-nxp-openthread \
+  ${BSPDIR}/sources/meta-imx/meta-imx-ml \
+  ${BSPDIR}/sources/meta-imx/meta-imx-sdk \
   \
   ${BSPDIR}/sources/meta-variscite-bsp-common \
   ${BSPDIR}/sources/meta-variscite-bsp-imx \
-  ${BSPDIR}/sources/meta-variscite-sdk-common \
   ${BSPDIR}/sources/meta-variscite-hab \
+  ${BSPDIR}/sources/meta-variscite-sdk-common \
+  ${BSPDIR}/sources/meta-variscite-sdk-imx \
   \
   ${BSPDIR}/sources/meta-arm/meta-arm \
   ${BSPDIR}/sources/meta-arm/meta-arm-toolchain \
