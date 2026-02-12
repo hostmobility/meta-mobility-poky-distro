@@ -22,6 +22,8 @@ PACKAGECONFIG:append:pn-nativesdk-qemu = " sdl"
 CONF_VERSION = "2"
 
 INHERIT += "rm_work deploy_mobility"
+INHERIT += "cve-check"
+include conf/distro/include/cve-extra-exclusions.inc
 
 DISTRO_FEATURES:append = " usrmerge"
 DISTRO_FEATURES:append = " systemd"
