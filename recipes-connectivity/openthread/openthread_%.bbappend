@@ -1,0 +1,1 @@
+CVE_STATUS[CVE-2019-20791] = "CVE_STATUS[CVE-2019-20791] = "fixed-version: recipe builds SRCREV 9681690fab100590566e4937cbf2d072de031ff3, which is newer than the affected upstream range"
