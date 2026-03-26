@@ -4,7 +4,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 SRC_URI:remove = " file://0001-eigen-replace-Eigen-zip-download-with-Git-clone-to-a.patch"
 
 SRC_URI:append = " \
-    file://0001-fix-Variscites-Eigen-patch-to-onnxruntime-1.16.1.patch \
+    file://0001-move-Variscites-Eigen-patch-to-onnxruntime-1.16.1.patch \
     file://0002-mlas-remove-fp16-cortex-a53.patch \
 "
 
