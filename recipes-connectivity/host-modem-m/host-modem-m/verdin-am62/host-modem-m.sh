@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Host modem manager for MX-V with EG25-G
+# Host modem manager for Host Monitor Mini
 
 WVDIAL_CONF=/opt/host-modem-m/wvdial.conf
 
@@ -15,21 +15,15 @@ modem_start()
 {
   timeout 0.1s gpioset "$MODEM_GPIO=1"
 
-  ## If we need to control two sims in the future, sim1 is controlled by 0 and sim2 by 1.
-  ##  timeout 0.1s gpioset SIM_SEL=0
-  ##  if [ $? != 0 ]; then
-  ##    echo "FAILED gpioset SIM_SEL!" >> $SETUP_LOG
-  ##  fi
-
   sleep 1
 
   WAIT_TIME=0
   WAIT_EXIT=1
   WAIT_TIME_OUT=60
-  logger "Determining modem type..."
+  logger "Waiting for modem..."
   until [ $WAIT_EXIT -eq 0 ] || [ $WAIT_TIME -eq $WAIT_TIME_OUT ]; do
     if [ -e /dev/ttyUSB2 ]; then
-      logger "EG25-G modem detected"
+      logger "Modem detected"
       WAIT_EXIT=0
     fi
     WAIT_TIME=$((WAIT_TIME+1))
