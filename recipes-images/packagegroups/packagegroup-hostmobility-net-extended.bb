@@ -8,5 +8,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 RDEPENDS:${PN} = " \
     mobile-broadband-provider-info \
     wvdial \
+    iptables
 "
 
