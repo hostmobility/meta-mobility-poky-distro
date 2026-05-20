@@ -1,0 +1,15 @@
+[connection]
+id=onomondo
+type=gsm
+autoconnect=true
+autoconnect-priority=100
+autoconnect-retries=0
+
+[gsm]
+apn=onomondo
+
+[ipv4]
+method=auto
+
+[ipv6]
+method=ignore
