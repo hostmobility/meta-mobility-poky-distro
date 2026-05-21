@@ -1,0 +1,15 @@
+[connection]
+id=fallback-cxn
+type=gsm
+autoconnect=true
+autoconnect-priority=50
+autoconnect-retries=0
+
+[gsm]
+apn=internet.lte.cxn
+
+[ipv4]
+method=auto
+
+[ipv6]
+method=ignore
