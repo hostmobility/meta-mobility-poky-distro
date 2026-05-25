@@ -1,0 +1,12 @@
+[Unit]
+Description=Power on modem for hmm via MODEM_ENABLE_ON GPIO
+Before=ModemManager.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+SuccessExitStatus=124
+ExecStart=bash -c "timeout 1 gpioset MODEM_ENABLE_ON=1"
+
+[Install]
+WantedBy=multi-user.target
