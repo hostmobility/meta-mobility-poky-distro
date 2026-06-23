@@ -13,10 +13,10 @@ fi
 
 modem_start()
 {
-  timeout 0.1s gpioset "$MODEM_GPIO=1"
+  timeout 1 gpioset "$MODEM_GPIO=1"
 
   ## If we need to control two sims in the future, sim1 is controlled by 0 and sim2 by 1.
-  ##  timeout 0.1s gpioset SIM_SEL=0
+  ##  timeout 1 gpioset SIM_SEL=0
   ##  if [ $? != 0 ]; then
   ##    echo "FAILED gpioset SIM_SEL!" >> $SETUP_LOG
   ##  fi
@@ -46,7 +46,7 @@ modem_start()
 
 modem_stop()
 {
-  timeout 0.1s gpioset "$MODEM_GPIO=0"
+  timeout 1 gpioset "$MODEM_GPIO=0"
 }
 
 modem_start

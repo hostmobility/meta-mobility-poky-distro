@@ -13,7 +13,7 @@ fi
 
 modem_start()
 {
-  timeout 0.1s gpioset "$MODEM_GPIO=1"
+  timeout 1 gpioset "$MODEM_GPIO=1"
 
   sleep 1
 
@@ -40,7 +40,7 @@ modem_start()
 
 modem_stop()
 {
-  timeout 0.1s gpioset "$MODEM_GPIO=0"
+  timeout 1 gpioset "$MODEM_GPIO=0"
 }
 
 modem_start
