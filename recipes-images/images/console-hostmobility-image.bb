@@ -25,7 +25,6 @@ IMAGE_INSTALL:append = " \
     packagegroup-hostmobility-python \
     packagegroup-hostmobility-base \
     packagegroup-hostmobility-net-minimal \
-    packagegroup-hostmobility-gps \
     packagegroup-hostmobility-net-extended \
     packagegroup-hostmobility-test-tools \
     udev-extra-rules \
